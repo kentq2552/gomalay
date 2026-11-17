@@ -31,24 +31,38 @@ jobs:
           python-version: "3.12"
           cache: pip
 
-      - name: Cài thư viện + Chromium
+      # Cài + crawl, toàn bộ log ghi vào data/last-run.log rồi commit lên repo,
+      # để xem được lỗi bằng GitHub Desktop (Pull) mà không cần vào web.
+      - name: Cài thư viện + crawl giá
+        id: crawl
+        continue-on-error: true
         run: |
-          pip install -r requirements.txt
-          python -m playwright install --with-deps chromium
+          set -o pipefail
+          {
+            echo "Bắt đầu: $(TZ=Asia/Ho_Chi_Minh date '+%F %T') (commit ${GITHUB_SHA::7})"
+            pip install -q -r requirements.txt
+            python -m playwright install --with-deps chromium > /tmp/pw-install.log 2>&1 || { tail -n 40 /tmp/pw-install.log; exit 1; }
+            python update_prices.py
+          } 2>&1 | tee data/last-run.log
 
-      - name: Crawl giá
-        run: python update_prices.py
-
-      - name: Lưu dữ liệu vào repo
+      - name: Lưu dữ liệu + log vào repo
+        if: always()
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
+          echo "Kết quả: ${{ steps.crawl.outcome }}" >> data/last-run.log
           git add -A data
           if git diff --cached --quiet; then
             echo "Không có gì thay đổi"
           else
-            git commit -m "Giá ngày $(TZ=Asia/Ho_Chi_Minh date +%F)"
+            git commit -m "Giá ngày $(TZ=Asia/Ho_Chi_Minh date +%F) (${{ steps.crawl.outcome }})"
             # Nếu trong lúc crawl bạn vừa push code mới thì lấy về trước rồi mới đẩy lên
             git pull --rebase
             git push
           fi
+
+      - name: Báo lỗi nếu crawl hỏng (để GitHub gửi email)
+        if: steps.crawl.outcome == 'failure'
+        run: |
+          echo "Crawl lỗi, xem data/last-run.log"
+          exit 1
