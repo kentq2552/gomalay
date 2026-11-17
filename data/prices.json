@@ -60,6 +60,42 @@
   ],
   "hotels": [
    {
+    "name": "Teedo Hotel, Kuala Lumpur",
+    "price": 309000,
+    "rating": 4.6,
+    "reviews": "1,8 N",
+    "why": "",
+    "chain": false,
+    "usd": 12
+   },
+   {
+    "name": "Swing & Pillows - Times Square, Bukit Bintang",
+    "price": 386000,
+    "rating": 4.8,
+    "reviews": "35",
+    "why": "Vị trí rất lý tưởng",
+    "chain": false,
+    "usd": 15
+   },
+   {
+    "name": "Swing & Pillows By iBilik @ Bukit Bintang City Centre",
+    "price": 386000,
+    "rating": 4.7,
+    "reviews": "1,2 N",
+    "why": "Vị trí rất lý tưởng",
+    "chain": false,
+    "usd": 15
+   },
+   {
+    "name": "Kingston Hotel 06 By iBilik @ Changkat Bukit Bintang",
+    "price": 412000,
+    "rating": 4.7,
+    "reviews": "2,8 N",
+    "why": "Vị trí rất lý tưởng",
+    "chain": true,
+    "usd": 16
+   },
+   {
     "name": "Astar Hotel Bukit Bintang",
     "price": 489000,
     "rating": 4.5,
@@ -67,9 +103,27 @@
     "why": "Vị trí rất lý tưởng",
     "chain": false,
     "usd": 19
+   },
+   {
+    "name": "AQ Hotel Bukit Bintang",
+    "price": 515000,
+    "rating": 4.6,
+    "reviews": "987",
+    "why": "Vị trí rất lý tưởng",
+    "chain": false,
+    "usd": 20
+   },
+   {
+    "name": "Hotel Olympic Malaysia",
+    "price": 541000,
+    "rating": 4.5,
+    "reviews": "6,5 N",
+    "why": "",
+    "chain": false,
+    "usd": 21
    }
   ],
   "date": "2026-11-17",
-  "fetchedAt": "2026-11-17T14:48+07:00"
+  "fetchedAt": "2026-11-17T15:53+07:00"
  }
 ]
