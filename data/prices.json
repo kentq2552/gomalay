@@ -52,51 +52,14 @@
    {
     "name": "AirAsia (hãng)",
     "price": 6851348
+   },
+   {
+    "name": "Jettzy",
+    "price": 7221321
    }
   ],
-  "hotels": [
-   {
-    "name": "Hotel Olympic Malaysia",
-    "price": 449521,
-    "rating": 4.5,
-    "reviews": "6,5 N",
-    "why": "",
-    "chain": false
-   },
-   {
-    "name": "Swing & Pillows By iBilik @ Sungei Wang, Bukit Bintang Kuala Lumpur",
-    "price": 459717,
-    "rating": 4.5,
-    "reviews": "1,4 N",
-    "why": "Vị trí rất lý tưởng",
-    "chain": false
-   },
-   {
-    "name": "Kingston Hotel 06 By iBilik @ Changkat Bukit Bintang",
-    "price": 485051,
-    "rating": 4.7,
-    "reviews": "2,8 N",
-    "why": "Vị trí rất lý tưởng",
-    "chain": true
-   },
-   {
-    "name": "Astar Hotel Bukit Bintang",
-    "price": 495278,
-    "rating": 4.5,
-    "reviews": "1,0 N",
-    "why": "Vị trí rất lý tưởng",
-    "chain": false
-   },
-   {
-    "name": "Kingston Hotel 01 By iBilik @ Bukit Bintang, Kuala Lumpur",
-    "price": 700827,
-    "rating": 4.7,
-    "reviews": "2,2 N",
-    "why": "Vị trí rất lý tưởng",
-    "chain": true
-   }
-  ],
+  "hotels": [],
   "date": "2026-11-17",
-  "fetchedAt": "2026-11-17T12:03+07:00"
+  "fetchedAt": "2026-11-17T13:56+07:00"
  }
 ]
