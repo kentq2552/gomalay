@@ -292,7 +292,7 @@ td.r,th.r{text-align:right}
     // hotels
     $("hotel-note").textContent = last.hotelsFrom && last.hotelsFrom !== last.date
       ? `Hôm nay không lấy được giá khách sạn, đang hiện giá ngày ${last.hotelsFrom.split("-").reverse().join("/")}.` : "";
-    $("hotel-body").innerHTML = hotels.length ? hotels.map(h=>`<tr class="${goodH[0]&&h.name===goodH[0].name?"best":""}"><td><strong>${esc(h.name)}</strong>${h.chain?'<span class="tag amber">Chuỗi trong TikTok</span>':""}</td><td class="r num">${fmt(h.price)} ₫</td><td class="r num">${h.rating} (${esc(h.reviews||"")})</td><td>${esc(h.why||"")}</td></tr>`).join("") : '<tr><td colspan="4" class="empty">Chưa có dữ liệu.</td></tr>';
+    $("hotel-body").innerHTML = hotels.length ? hotels.map(h=>`<tr class="${goodH[0]&&h.name===goodH[0].name?"best":""}"><td><strong>${esc(h.name)}</strong>${h.chain?'<span class="tag amber">Chuỗi trong TikTok</span>':""}</td><td class="r num">${h.usd?"≈ ":""}${fmt(h.price)} ₫${h.usd?`<br><span class="muted" style="font-size:12px">${h.usd} US$</span>`:""}</td><td class="r num">${h.rating} (${esc(h.reviews||"")})</td><td>${esc(h.why||"")}</td></tr>`).join("") : '<tr><td colspan="4" class="empty">Chưa có dữ liệu.</td></tr>';
 
     // cost
     if(last.cheapest){

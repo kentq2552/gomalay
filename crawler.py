@@ -38,6 +38,23 @@ CLICK_JS = """(label) => {
   if (!el) return false; el.click(); return true; }"""
 
 
+USD_VND_FALLBACK = 26_000
+_rate_cache = {}
+
+
+def usd_vnd_rate() -> float:
+    """Tỷ giá USD -> VND (server GitHub ở Mỹ nên Google Hotels trả giá US$ dù đã xin VND)."""
+    if "v" not in _rate_cache:
+        try:
+            import urllib.request
+            with urllib.request.urlopen("https://open.er-api.com/v6/latest/USD", timeout=15) as r:
+                _rate_cache["v"] = float(json.load(r)["rates"]["VND"])
+        except Exception as e:
+            log.warning("Không lấy được tỷ giá, dùng %s: %s", USD_VND_FALLBACK, e)
+            _rate_cache["v"] = USD_VND_FALLBACK
+    return _rate_cache["v"]
+
+
 def _num(s: str) -> int:
     return int(re.sub(r"[^\d]", "", s))
 
@@ -182,10 +199,10 @@ class HotelParseError(Exception):
 
 def parse_hotels(text: str):
     lines = [l.strip() for l in text.splitlines() if l.strip()]
-    price_re = re.compile(r"^(\d[\d\.,\s]*)\s*₫$")
+    price_re = re.compile(r"^(\d[\d\.,\s]*)\s*(₫|US\$)$")
     rating_re = re.compile(r"^(\d)[,\.](\d)$")
     reviews_re = re.compile(r"^\(([\d,\.]+\s*N?)\)$")
-    skip = ("GIÁ TỐT", "Rẻ hơn", "cho khách sạn", "Đã giảm", "Ưu đãi")
+    skip = ("GIÁ ", "Rẻ hơn", "cho khách sạn", "với các", "Đã giảm", "Ưu đãi")
     hotels = []
     for i, line in enumerate(lines):
         m = rating_re.match(line)
@@ -196,7 +213,14 @@ def parse_hotels(text: str):
         p_idx = next((j for j in range(i - 1, max(i - 5, -1), -1) if price_re.match(lines[j])), None)
         if p_idx is None:
             continue
-        price = _num(lines[p_idx])
+        pm = price_re.match(lines[p_idx])
+        usd = None
+        if pm.group(2) == "US$":
+            usd = _num(pm.group(1))
+            price = round(usd * usd_vnd_rate(), -3)
+            price = int(price)
+        else:
+            price = _num(pm.group(1))
         n_idx = next((j for j in range(p_idx - 1, max(p_idx - 4, -1), -1)
                       if not lines[j].startswith(skip)), None)
         if n_idx is None:
@@ -211,6 +235,8 @@ def parse_hotels(text: str):
             "why": "Vị trí rất lý tưởng" if "Địa điểm rất lý tưởng" in around else "",
             "chain": name.lower().startswith("kingston hotel"),
         })
+        if usd is not None:
+            hotels[-1]["usd"] = usd
     seen, out = set(), []
     for h in sorted(hotels, key=lambda h: h["price"]):
         if (h["name"] in seen or h["price"] >= HOTEL_MAX_PRICE or h["rating"] < HOTEL_MIN_RATING
