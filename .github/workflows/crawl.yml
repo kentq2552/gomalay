@@ -48,5 +48,7 @@ jobs:
             echo "Không có gì thay đổi"
           else
             git commit -m "Giá ngày $(TZ=Asia/Ho_Chi_Minh date +%F)"
+            # Nếu trong lúc crawl bạn vừa push code mới thì lấy về trước rồi mới đẩy lên
+            git pull --rebase
             git push
           fi
