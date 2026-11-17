@@ -186,7 +186,19 @@ def crawl_hotels(page):
     except PWTimeout:
         pass
     page.wait_for_timeout(2500)
+    # Mỗi trang chỉ ~18 khách sạn, phần lớn đắt, nên đọc thêm 2 trang sau
     text = page.inner_text("body")
+    for _ in range(2):
+        nxt = page.get_by_text("Tiếp theo", exact=True)
+        if not nxt.count():
+            break
+        try:
+            nxt.first.click()
+            page.wait_for_timeout(3500)
+            text += "\n" + page.inner_text("body")
+        except Exception as e:
+            log.info("Không sang được trang khách sạn tiếp: %s", e)
+            break
     hotels = parse_hotels(text)
     if not hotels:  # để lại nội dung trang cho dễ tìm lỗi (update_prices ghi ra data/debug-hotels.txt)
         raise HotelParseError(f"URL: {page.url}\n\n{text[:6000]}")
