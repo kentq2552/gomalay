@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>KL 30/4 Tracker</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap">
+<style>
+/* Layout: one reading column, summary strip on top, then sections as plain bands; tables scroll inside their own boxes */
+:root{
+  --bg:#f6f7f5; --surface:#ffffff; --fg:#14211f; --muted:#5b6b67; --line:#dfe5e2;
+  --accent:#0d6b5e; --accent-soft:#d9efe9; --amber:#b86a00; --amber-soft:#fbecd3;
+  --good:#1f7a3a; --bad:#b3261e;
+  --f-body:"Be Vietnam Pro",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-num:"JetBrains Mono",ui-monospace,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0f1716; --surface:#16211f; --fg:#e6efec; --muted:#93a6a1; --line:#26342f;
+  --accent:#4cc3ad; --accent-soft:#163a33; --amber:#f0a540; --amber-soft:#3a2a12;
+  --good:#5fd07e; --bad:#ff7a70; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0f1716; --surface:#16211f; --fg:#e6efec; --muted:#93a6a1; --line:#26342f;
+  --accent:#4cc3ad; --accent-soft:#163a33; --amber:#f0a540; --amber-soft:#3a2a12;
+  --good:#5fd07e; --bad:#ff7a70; color-scheme:dark}
+body{background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:15px;line-height:1.55}
+.wrap{max-width:1040px;margin:0 auto;padding-block:28px 64px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:40px}
+h1,h2,h3{text-wrap:balance;margin:0;line-height:1.2}
+h1{font-size:clamp(26px,4.5vw,38px);font-weight:800;letter-spacing:-.02em}
+h2{font-size:21px;font-weight:700}
+h3{font-size:16px;font-weight:700}
+p{margin:0}
+a{color:var(--accent)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.eyebrow{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.num{font-family:var(--f-num);font-variant-numeric:tabular-nums}
+.muted{color:var(--muted)}
+section{display:flex;flex-direction:column;gap:14px;min-width:0}
+.sec-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:8px}
+
+/* header */
+.hero{display:flex;flex-direction:column;gap:10px}
+.route{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.chip{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:999px;background:var(--accent-soft);color:var(--accent);font-size:13px;font-weight:600}
+.chip.amber{background:var(--amber-soft);color:var(--amber)}
+
+/* summary strip */
+.strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.stat{background:var(--surface);padding:16px 18px;display:flex;flex-direction:column;gap:4px;min-width:0}
+.stat .v{font-family:var(--f-num);font-size:24px;font-weight:700;letter-spacing:-.01em}
+.stat .s{font-size:13px;color:var(--muted)}
+.delta.up{color:var(--bad)} .delta.down{color:var(--good)}
+
+/* chart */
+.chart-box{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px}
+.chart-box svg{display:block;width:100%;height:auto}
+.empty{padding:20px;text-align:center;color:var(--muted);font-size:14px}
+
+/* tables */
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{padding:10px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+tr:last-child td{border-bottom:0}
+th{font-size:12px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);background:var(--bg);white-space:nowrap}
+td.r,th.r{text-align:right}
+.best td{background:var(--accent-soft)}
+.tag{display:inline-block;font-size:11px;font-weight:700;padding:2px 7px;border-radius:6px;background:var(--accent);color:var(--surface);margin-left:6px;vertical-align:1px}
+.tag.amber{background:var(--amber)}
+
+/* itinerary (sheet style from the TikTok reference) */
+.day-row td{background:var(--amber-soft);font-weight:700;color:var(--fg)}
+.it td:first-child{white-space:nowrap;font-family:var(--f-num);font-size:13px}
+.it{min-width:760px}
+
+/* links */
+.links{display:flex;flex-wrap:wrap;gap:8px}
+.links a{display:inline-flex;padding:7px 12px;border:1px solid var(--line);border-radius:8px;background:var(--surface);text-decoration:none;font-weight:600;font-size:14px;color:var(--fg)}
+.links a:hover{border-color:var(--accent);color:var(--accent)}
+
+/* restaurants */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px}
+.food{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px;display:flex;flex-direction:column;gap:6px;min-width:0}
+.food .meta{font-size:13px;color:var(--muted)}
+.src{font-size:12px;color:var(--muted)}
+
+.notes{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+.note{border-left:3px solid var(--amber);padding:4px 0 4px 12px;font-size:14px}
+.status{font-size:13px;color:var(--muted)}
+.btn{font:600 13px var(--f-body);padding:7px 14px;border-radius:8px;border:0;background:var(--accent);color:var(--surface);cursor:pointer}
+.btn:disabled{opacity:.6;cursor:progress}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="hero">
+    <span class="eyebrow">Theo dõi chuyến đi · cập nhật mỗi sáng</span>
+    <h1>Hà Nội ⇄ Kuala Lumpur, 30/4 – 2/5/2027</h1>
+    <div class="route">
+      <span class="chip">HAN → KUL · Thứ 6, 30/4</span>
+      <span class="chip">KUL → HAN · CN, 2/5</span>
+      <span class="chip">1 người lớn · 3N2Đ</span>
+      <span class="chip amber" id="countdown">Còn … ngày</span>
+    </div>
+    <p class="muted">30/4–1/5 là kỳ nghỉ lễ ở Việt Nam, 1/5 cũng là ngày nghỉ lễ ở Malaysia, nên giá thường tăng sát ngày. Trang này ghi lại giá rẻ nhất mỗi ngày để bạn thấy xu hướng và chọn lúc đặt.</p>
+  </header>
+
+  <section aria-labelledby="h-sum">
+    <div class="sec-head"><h2 id="h-sum">Giá hôm nay</h2><span style="display:flex;gap:10px;align-items:center;flex-wrap:wrap"><span class="status" id="status">Đang tải dữ liệu giá…</span><button id="refresh" class="btn" type="button" hidden>Cập nhật ngay</button></span></div>
+    <div class="strip">
+      <div class="stat"><span class="eyebrow">Vé khứ hồi rẻ nhất</span><span class="v" id="s-cheap">—</span><span class="s" id="s-cheap-sub">—</span></div>
+      <div class="stat"><span class="eyebrow">So với hôm qua</span><span class="v delta" id="s-delta">—</span><span class="s" id="s-delta-sub">—</span></div>
+      <div class="stat"><span class="eyebrow">Thấp nhất từng ghi nhận</span><span class="v" id="s-low">—</span><span class="s" id="s-low-sub">—</span></div>
+      <div class="stat"><span class="eyebrow">Khách sạn rẻ nhất (≥4,5★)</span><span class="v" id="s-hotel">—</span><span class="s" id="s-hotel-sub">—</span></div>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-chart">
+    <div class="sec-head"><h2 id="h-chart">Lịch sử giá vé khứ hồi</h2><span class="muted" style="font-size:13px">Nguồn: Google Flights, giá đã gồm thuế phí, chưa gồm hành lý ký gửi</span></div>
+    <div class="chart-box" id="chart"><div class="empty">Biểu đồ sẽ hiện khi có từ 1 ngày dữ liệu. Bot thêm một điểm mỗi sáng.</div></div>
+  </section>
+
+  <section aria-labelledby="h-air">
+    <div class="sec-head"><h2 id="h-air">Các hãng bay thẳng</h2><span class="muted" style="font-size:13px" id="air-date"></span></div>
+    <div class="tbl"><table>
+      <thead><tr><th>Hãng</th><th>Chiều đi 30/4</th><th>Chiều về 2/5</th><th class="r">Khứ hồi từ</th><th>Ghi chú</th></tr></thead>
+      <tbody id="air-body"><tr><td colspan="5" class="empty">Chưa có dữ liệu.</td></tr></tbody>
+    </table></div>
+  </section>
+
+  <section aria-labelledby="h-plat">
+    <div class="sec-head"><h2 id="h-plat">Cùng một vé, giá trên từng nền tảng</h2><span class="muted" style="font-size:13px" id="plat-flight"></span></div>
+    <div class="tbl"><table>
+      <thead><tr><th>Nền tảng</th><th class="r">Giá khứ hồi</th><th class="r">Chênh so với rẻ nhất</th></tr></thead>
+      <tbody id="plat-body"><tr><td colspan="3" class="empty">Chưa có dữ liệu.</td></tr></tbody>
+    </table></div>
+    <div class="links" aria-label="Mở nhanh tìm kiếm trên các nền tảng">
+      <a href="https://www.google.com/travel/flights/search?q=Flights%20to%20KUL%20from%20HAN%20on%202027-04-30%20through%202027-05-02&curr=VND&hl=vi&gl=VN" target="_blank" rel="noopener">Google Flights</a>
+      <a href="https://www.skyscanner.com.vn/transport/flights/han/kul/270430/270502/?adultsv2=1&cabinclass=economy" target="_blank" rel="noopener">Skyscanner</a>
+      <a href="https://vn.trip.com/flights/hanoi-to-kuala-lumpur/airfares-han-kul/" target="_blank" rel="noopener">Trip.com</a>
+      <a href="https://www.traveloka.com/vi-vn/flight" target="_blank" rel="noopener">Traveloka</a>
+      <a href="https://www.agoda.com/vi-vn/flights" target="_blank" rel="noopener">Agoda</a>
+      <a href="https://www.airasia.com/vi/vn" target="_blank" rel="noopener">AirAsia</a>
+      <a href="https://www.vietjetair.com" target="_blank" rel="noopener">Vietjet</a>
+      <a href="https://www.vietnamairlines.com/vn/vi/home" target="_blank" rel="noopener">Vietnam Airlines</a>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-hotel">
+    <div class="sec-head"><h2 id="h-hotel">Khách sạn dưới 1 triệu/đêm, gần Bukit Bintang</h2><span class="muted" style="font-size:13px">Giá 1 đêm, ngày 30/4–2/5, điểm Google</span></div>
+    <div class="tbl"><table>
+      <thead><tr><th>Khách sạn</th><th class="r">Giá/đêm</th><th class="r">Điểm (lượt)</th><th>Vì sao chọn</th></tr></thead>
+      <tbody id="hotel-body"><tr><td colspan="4" class="empty">Chưa có dữ liệu.</td></tr></tbody>
+    </table></div>
+    <div class="links">
+      <a href="https://www.google.com/travel/search?q=hotels%20Bukit%20Bintang%20Kuala%20Lumpur&checkin=2027-04-30&checkout=2027-05-02&adults=1&curr=VND&hl=vi&gl=VN" target="_blank" rel="noopener">Google Hotels</a>
+      <a href="https://www.agoda.com/vi-vn/bukit-bintang/maps/kuala-lumpur-my.html" target="_blank" rel="noopener">Agoda</a>
+      <a href="https://www.booking.com/searchresults.vi.html?ss=Bukit+Bintang&checkin=2027-04-30&checkout=2027-05-02&group_adults=1" target="_blank" rel="noopener">Booking.com</a>
+      <a href="https://vn.trip.com/hotels/" target="_blank" rel="noopener">Trip.com</a>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-it">
+    <div class="sec-head"><h2 id="h-it">Lịch trình 3 ngày 2 đêm</h2><span class="muted" style="font-size:13px">Theo mẫu bảng của TikTok @linhthuyvivu, rút gọn từ 5N4Đ</span></div>
+    <div class="tbl"><table class="it">
+      <thead><tr><th>Giờ</th><th>Hoạt động</th><th>Địa điểm</th><th>Chi tiết</th><th>Ghi chú</th></tr></thead>
+      <tbody>
+        <tr class="day-row"><td colspan="5">Ngày 1 · Thứ 6, 30/4 · Đến nơi, KLCC và Bukit Bintang về đêm</td></tr>
+        <tr><td>09:00–13:15</td><td>Bay</td><td>HAN → KLIA</td><td>AirAsia AK 09:00, chỉ có hành lý xách tay 7kg</td><td>Khai MDAC (thẻ nhập cảnh điện tử) trong 3 ngày trước khi bay</td></tr>
+        <tr><td>13:15–14:30</td><td>Nhập cảnh</td><td>KLIA</td><td>Mua SIM ở sân bay, đổi ít tiền mặt</td><td>SIM khoảng 90k</td></tr>
+        <tr><td>14:30–15:45</td><td>Vào trung tâm</td><td>KLIA → KL Sentral</td><td>Xe buýt sân bay khoảng 95k/chiều (rẻ nhất), hoặc KLIA Ekspres 28 phút</td><td>Từ KL Sentral đi MRT hoặc Grab về khách sạn</td></tr>
+        <tr><td>16:00–17:00</td><td>Nhận phòng</td><td>Bukit Bintang</td><td>Nghỉ, tắm rửa</td><td></td></tr>
+        <tr><td>17:00–19:00</td><td>Tháp đôi</td><td>KLCC Park, Suria KLCC</td><td>Chụp Petronas lúc hoàng hôn, xem nhạc nước Lake Symphony buổi tối</td><td>Lên đài quan sát khoảng RM100, đặt trước 1–2 tuần</td></tr>
+        <tr><td>19:30–21:00</td><td>Ăn tối</td><td>Jalan Alor</td><td>Phố ẩm thực nổi tiếng nhất KL</td><td>Đến 19–20h để có chỗ, sau 21h rất đông</td></tr>
+        <tr><td>21:00–22:30</td><td>Dạo đêm</td><td>Pavilion, Lot 10, Changkat</td><td>Đi bộ quanh 3 trung tâm thương mại lớn</td><td>Ăn vặt: Kim Soya Bean, King of Tea</td></tr>
+
+        <tr class="day-row"><td colspan="5">Ngày 2 · Thứ 7, 1/5 (lễ Lao động ở Malaysia) · Batu Caves, phố cổ, Merdeka</td></tr>
+        <tr><td>07:00–10:00</td><td>Đền hang</td><td>Batu Caves</td><td>Đi sớm cho mát và vắng, tàu KTM từ KL Sentral</td><td>Mặc quần dài hoặc váy qua gối</td></tr>
+        <tr><td>11:00–12:30</td><td>Ăn trưa</td><td>Chinatown</td><td>Chọn 1: Hai Kee bún bò, Lai Foong mì nghêu, Mee Tarik mì kéo tay</td><td></td></tr>
+        <tr><td>12:30–15:30</td><td>Phố cổ</td><td>Kwai Chai Hong, Petaling Street, REXKL, Central Market</td><td>Đi bộ, các điểm cách nhau 5–10 phút</td><td>Mua quà ở Central Market</td></tr>
+        <tr><td>15:30–16:30</td><td>Thánh đường</td><td>Masjid Jamek</td><td>Một trong những nhà thờ Hồi giáo cổ nhất KL</td><td>Ăn mặc kín đáo</td></tr>
+        <tr><td>16:30–18:30</td><td>Hoàng hôn</td><td>River of Life, Merdeka Square</td><td>Đẹp nhất lúc lên đèn</td><td>Cafe gần đó: Jamboo KL</td></tr>
+        <tr><td>19:00–20:00</td><td>Chụp tháp đôi</td><td>Cầu đi bộ Saloma Link</td><td>Góc chụp Petronas từ cầu</td><td></td></tr>
+        <tr><td>20:00–22:30</td><td>Tối</td><td>Kampung Baru hoặc rooftop gần KLCC</td><td>Ăn nasi lemak ở Kampung Baru, hoặc lên Saloma / Alva KL (đặt bàn trước)</td><td></td></tr>
+
+        <tr class="day-row"><td colspan="5">Ngày 3 · CN, 2/5 · Ăn sáng rồi ra sân bay</td></tr>
+        <tr><td>07:00–08:15</td><td>Ăn sáng</td><td>Nasi Lemak Alor Corner hoặc ICC Pudu</td><td>Nasi lemak khoảng RM4, hoặc dimsum ở ICC Pudu</td><td>Gà chiên ở Alor Corner hay hết trước 10h</td></tr>
+        <tr><td>08:30–10:00</td><td>Ra sân bay</td><td>KL Sentral → KLIA</td><td>KLIA Ekspres cho chắc giờ</td><td>Có mặt trước giờ bay 2 tiếng</td></tr>
+        <tr><td>12:00–14:20</td><td>Bay về</td><td>KLIA → HAN</td><td>AirAsia 12:00</td><td>Muốn chơi thêm buổi sáng thì chọn chuyến về muộn hơn</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section aria-labelledby="h-food">
+    <div class="sec-head"><h2 id="h-food">Quán ăn đánh giá cao, giá vừa</h2><span class="muted" style="font-size:13px">Tổng hợp từ TikTok, blog ẩm thực, Michelin Guide</span></div>
+    <div class="grid">
+      <article class="food"><h3>Nasi Lemak Alor Corner</h3><p class="meta">Jalan Alor · khoảng RM4/đĩa · ăn sáng</p><p>Quầy gia đình mở từ 1980, hơn 20 món ăn kèm tự làm mỗi ngày, xếp hàng buổi sáng.</p><p class="src">sethlui.com</p></article>
+      <article class="food"><h3>Heun Kee Claypot Chicken Rice</h3><p class="meta">Pudu · cơm gà niêu đất · tối</p><p>Quán cơm gà niêu nổi tiếng, có trong lịch trình mẫu.</p><p class="src">TikTok @linhthuyvivu</p></article>
+      <article class="food"><h3>Hai Kee Fried Beef Bun</h3><p class="meta">Chinatown · bún bò xào</p><p>Một trong các lựa chọn ăn trưa, tối ở khu phố cổ.</p><p class="src">TikTok @linhthuyvivu</p></article>
+      <article class="food"><h3>Lai Foong lala noodles</h3><p class="meta">Chinatown · mì nghêu</p><p>Gần Petaling Street, tiện ghép với lịch trình ngày 2.</p><p class="src">TikTok @linhthuyvivu</p></article>
+      <article class="food"><h3>Ali, Muthu &amp; Ah Hock</h3><p class="meta">Chinatown · nasi lemak, kopitiam</p><p>Quán kiểu cà phê cổ, ăn nasi lemak và đồ uống Malaysia.</p><p class="src">TikTok @linhthuyvivu</p></article>
+      <article class="food"><h3>Wanjo, Kampung Baru</h3><p class="meta">Kampung Baru · nasi lemak</p><p>Nasi lemak nổi tiếng ở làng Mã Lai giữa lòng thành phố.</p><p class="src">TikTok @linhthuyvivu</p></article>
+      <article class="food"><h3>Nasi Lemak Motor</h3><p class="meta">Kampung Baru · 6:30–11h, thứ 3–7</p><p>Hàng dài buổi sáng, chỉ bán buổi sáng.</p><p class="src">Yahoo News Malaysia</p></article>
+      <article class="food"><h3>Nasi Lemak Tanglin</h3><p class="meta">Bukit Damansara · nasi lemak</p><p>Có tên trong danh sách nasi lemak ngon của Michelin Guide.</p><p class="src">Michelin Guide</p></article>
+      <article class="food"><h3>Nasi Ayam Chee Meng</h3><p class="meta">Bukit Bintang · cơm gà Hải Nam</p><p>Lựa chọn ăn tối gần khách sạn.</p><p class="src">TikTok @linhthuyvivu</p></article>
+      <article class="food"><h3>Damascus</h3><p class="meta">Bukit Bintang · kebab</p><p>Quán kebab được nhắc nhiều ở khu Jalan Alor.</p><p class="src">TikTok @linhthuyvivu</p></article>
+      <article class="food"><h3>ICC Pudu</h3><p class="meta">Pudu · chợ ẩm thực buổi sáng</p><p>Dimsum, mì trứng, nasi lemak. Món địa phương nổi tiếng nhất cho bữa sáng.</p><p class="src">TikTok @linhthuyvivu</p></article>
+      <article class="food"><h3>Jalan Alor (cả phố)</h3><p class="meta">Bukit Bintang · tối</p><p>Thực đơn các quầy giống nhau nhưng chất lượng chênh nhau, chọn quầy có hàng dài.</p><p class="src">nomadotravel.app (tiếng Việt)</p></article>
+    </div>
+    <div class="links">
+      <a href="https://www.tiktok.com/search?q=%C4%83n%20g%C3%AC%20kuala%20lumpur" target="_blank" rel="noopener">TikTok: ăn gì Kuala Lumpur</a>
+      <a href="https://www.youtube.com/results?search_query=kuala+lumpur+street+food+2026" target="_blank" rel="noopener">YouTube: KL street food</a>
+      <a href="https://www.facebook.com/search/posts?q=review%20%C4%83n%20u%E1%BB%91ng%20kuala%20lumpur" target="_blank" rel="noopener">Facebook: review ăn uống KL</a>
+      <a href="https://www.instagram.com/explore/tags/kualalumpurfood/" target="_blank" rel="noopener">Instagram: #kualalumpurfood</a>
+      <a href="https://www.google.com/maps/search/restaurants+Bukit+Bintang" target="_blank" rel="noopener">Google Maps</a>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-cost">
+    <h2 id="h-cost">Dự trù chi phí cho 1 người</h2>
+    <div class="tbl"><table>
+      <thead><tr><th>Khoản</th><th class="r">Ước tính</th><th>Cách tính</th></tr></thead>
+      <tbody>
+        <tr><td>Vé máy bay khứ hồi</td><td class="r num" id="c-flight">6.600.000</td><td>Giá rẻ nhất hôm nay, chưa gồm hành lý ký gửi</td></tr>
+        <tr><td>Khách sạn 2 đêm</td><td class="r num" id="c-hotel">1.000.000</td><td>Khách sạn rẻ nhất điểm ≥4,5 × 2 đêm</td></tr>
+        <tr><td>Ăn uống</td><td class="r num">1.500.000</td><td>500k/ngày × 3 (theo TikTok, ăn thoải mái)</td></tr>
+        <tr><td>Đi lại</td><td class="r num">800.000</td><td>Xe sân bay 2 chiều, Grab khoảng 200k/ngày, xe ra sân bay Nội Bài</td></tr>
+        <tr><td>SIM + vé tham quan</td><td class="r num">750.000</td><td>SIM khoảng 90k, đài quan sát Petronas khoảng RM100</td></tr>
+        <tr><td><strong>Tổng</strong></td><td class="r num"><strong id="c-total">10.650.000</strong></td><td>Chưa tính mua sắm</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section aria-labelledby="h-tips">
+    <h2 id="h-tips">Lưu ý trước khi đi</h2>
+    <div class="notes">
+      <p class="note">Người Việt được miễn visa 30 ngày vào Malaysia, nhưng phải khai MDAC (thẻ nhập cảnh điện tử) online trong vòng 3 ngày trước khi đến.</p>
+      <p class="note">Bạn TikTok mua vé 4–5 triệu khi đặt trước 1 tháng, nhưng đó là ngày thường. Chuyến 30/4 rơi vào lễ, Google ghi nhận khoảng giá thường gặp 3,9–9,7 triệu.</p>
+      <p class="note">AirAsia và Vietjet chỉ gồm hành lý xách tay. Cần ký gửi thì cộng thêm, so lại với Vietnam Airlines (đã gồm hành lý).</p>
+      <p class="note">Khách sạn 30/4 tăng giá theo lễ. Nên đặt loại hủy miễn phí ngay bây giờ, giá giảm thì đặt lại.</p>
+    </div>
+  </section>
+
+  <footer class="muted" style="font-size:13px">Giá lấy từ Google Flights và Google Hotels, có thể đổi trong ngày. Kiểm tra lại trên trang đặt vé trước khi thanh toán.</footer>
+</div>
+
+<script>
+(function(){
+  const fmt = n => (n==null||isNaN(n)) ? "—" : Math.round(n).toLocaleString("vi-VN");
+  const $ = id => document.getElementById(id);
+  const esc = s => String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+  const dmy = d => { const [y,m,dd]=String(d).split("-"); return dd+"/"+m+"/"+y; };
+
+  // countdown
+  try{
+    const days = Math.ceil((new Date("2027-04-30T00:00:00+07:00") - new Date())/86400000);
+    $("countdown").textContent = days>0 ? "Còn "+days+" ngày" : "Đã đến ngày đi";
+  }catch(e){}
+
+  function render(rows){
+    if(!rows.length){ $("status").textContent="Chưa có dữ liệu. Bot sẽ ghi giá vào sáng mai."; return; }
+    const last = rows[rows.length-1], prev = rows.length>1 ? rows[rows.length-2] : null;
+    $("status").textContent = "Cập nhật lần cuối: " + dmy(last.date) + " · " + rows.length + " ngày dữ liệu";
+    $("s-cheap").textContent = fmt(last.cheapest) + " ₫";
+    $("s-cheap-sub").textContent = (last.cheapestAirline||"") + (last.cheapestPlatform ? " · qua " + last.cheapestPlatform : "");
+    if(prev){
+      const d = last.cheapest - prev.cheapest;
+      const el = $("s-delta"); el.textContent = (d>0?"+":"") + fmt(d) + " ₫";
+      el.className = "v delta " + (d>0?"up":d<0?"down":"");
+      $("s-delta-sub").textContent = d>0 ? "Tăng so với " + dmy(prev.date) : d<0 ? "Giảm so với " + dmy(prev.date) : "Không đổi";
+    } else { $("s-delta").textContent="—"; $("s-delta-sub").textContent="Cần thêm 1 ngày để so sánh"; }
+    const low = rows.reduce((a,b)=> b.cheapest < a.cheapest ? b : a);
+    $("s-low").textContent = fmt(low.cheapest) + " ₫";
+    $("s-low-sub").textContent = "Ngày " + dmy(low.date);
+
+    const hotels = (last.hotels||[]).slice().sort((a,b)=>a.price-b.price);
+    const goodH = hotels.filter(h=>h.rating>=4.5);
+    if(goodH.length){ $("s-hotel").textContent = fmt(goodH[0].price) + " ₫"; $("s-hotel-sub").textContent = goodH[0].name; }
+
+    // airlines
+    const air = (last.airlines||[]).slice().sort((a,b)=>a.price-b.price);
+    $("air-date").textContent = "Giá ngày " + dmy(last.date);
+    $("air-body").innerHTML = air.length ? air.map((a,i)=>`<tr class="${i===0?"best":""}"><td><strong>${esc(a.airline)}</strong>${i===0?'<span class="tag">Rẻ nhất</span>':""}</td><td class="num">${esc(a.out||"")}</td><td class="num">${esc(a.back||"")}</td><td class="r num">${fmt(a.price)} ₫</td><td>${esc(a.note||"")}</td></tr>`).join("") : '<tr><td colspan="5" class="empty">Chưa có dữ liệu.</td></tr>';
+
+    // platforms
+    const pl = (last.platforms||[]).slice().sort((a,b)=>a.price-b.price);
+    $("plat-flight").textContent = last.platformFlight || "";
+    $("plat-body").innerHTML = pl.length ? pl.map((p,i)=>`<tr class="${i===0?"best":""}"><td><strong>${esc(p.name)}</strong>${i===0?'<span class="tag">Rẻ nhất</span>':""}</td><td class="r num">${fmt(p.price)} ₫</td><td class="r num">${i===0?"—":"+"+fmt(p.price-pl[0].price)+" ₫"}</td></tr>`).join("") : '<tr><td colspan="3" class="empty">Chưa có dữ liệu.</td></tr>';
+    if(pl.length===1) $("plat-body").innerHTML += '<tr><td colspan="3" class="muted" style="font-size:13px">Bot tự động chỉ thấy giá bán trực tiếp của hãng. Muốn so giá đại lý (Agoda, Trip.com, Traveloka…) thì bấm các nút bên dưới.</td></tr>';
+
+    // hotels
+    $("hotel-body").innerHTML = hotels.length ? hotels.map(h=>`<tr class="${goodH[0]&&h.name===goodH[0].name?"best":""}"><td><strong>${esc(h.name)}</strong>${h.chain?'<span class="tag amber">Chuỗi trong TikTok</span>':""}</td><td class="r num">${fmt(h.price)} ₫</td><td class="r num">${h.rating} (${esc(h.reviews||"")})</td><td>${esc(h.why||"")}</td></tr>`).join("") : '<tr><td colspan="4" class="empty">Chưa có dữ liệu.</td></tr>';
+
+    // cost
+    if(last.cheapest){
+      const hotel2 = goodH.length ? goodH[0].price*2 : 1000000;
+      $("c-flight").textContent = fmt(last.cheapest); $("c-hotel").textContent = fmt(hotel2);
+      $("c-total").textContent = fmt(last.cheapest + hotel2 + 1500000 + 800000 + 750000);
+    }
+    drawChart(rows);
+  }
+
+  function drawChart(rows){
+    const W=900,H=260,pl=78,pr=24,pt=20,pb=40;
+    const vals=rows.map(r=>r.cheapest);
+    let lo=Math.min(...vals), hi=Math.max(...vals);
+    const pad=Math.max(300000,(hi-lo)*0.2); lo=Math.max(0,lo-pad); hi=hi+pad;
+    const step=(()=>{const raw=(hi-lo)/4; const p=Math.pow(10,Math.floor(Math.log10(raw))); return Math.ceil(raw/p)*p;})();
+    lo=Math.floor(lo/step)*step; hi=Math.ceil(hi/step)*step;
+    const x=i=> rows.length===1 ? (pl+(W-pl-pr)/2) : pl + i*(W-pl-pr)/(rows.length-1);
+    const y=v=> pt + (hi-v)*(H-pt-pb)/(hi-lo);
+    let g="";
+    for(let v=lo; v<=hi+1; v+=step){ g+=`<line x1="${pl}" x2="${W-pr}" y1="${y(v)}" y2="${y(v)}" stroke="var(--line)"/><text x="${pl-8}" y="${y(v)+4}" text-anchor="end" font-size="12" fill="var(--muted)" font-family="var(--f-num)">${(v/1e6).toLocaleString("vi-VN",{maximumFractionDigits:1})}tr</text>`; }
+    const pts=rows.map((r,i)=>`${x(i)},${y(r.cheapest)}`).join(" ");
+    const area = rows.length>1 ? `<polygon points="${x(0)},${H-pb} ${pts} ${x(rows.length-1)},${H-pb}" fill="var(--accent-soft)"/>` : "";
+    const line = rows.length>1 ? `<polyline points="${pts}" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linejoin="round"/>` : "";
+    const every=Math.max(1,Math.ceil(rows.length/8));
+    const labels=rows.map((r,i)=> (i%every===0||i===rows.length-1) ? `<text x="${x(i)}" y="${H-pb+20}" text-anchor="middle" font-size="12" fill="var(--muted)" font-family="var(--f-num)">${dmy(r.date).slice(0,5)}</text>` : "").join("");
+    const li=rows.length-1;
+    const end=`<circle cx="${x(li)}" cy="${y(rows[li].cheapest)}" r="5" fill="var(--accent)" stroke="var(--surface)" stroke-width="2"/><text x="${Math.min(x(li),W-pr-4)}" y="${y(rows[li].cheapest)-12}" text-anchor="end" font-size="13" font-weight="700" fill="var(--fg)" font-family="var(--f-num)">${fmt(rows[li].cheapest)} ₫</text>`;
+    $("chart").innerHTML=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Giá vé khứ hồi rẻ nhất theo ngày">${g}${area}${line}${labels}${end}</svg>`;
+  }
+
+  // Dữ liệu: data/prices.json (Flask trên máy hoặc GitHub Pages đều phục vụ đường dẫn này)
+  async function loadData(){
+    try{
+      const res = await fetch("data/prices.json?t=" + Date.now(), {cache:"no-store"});
+      if(!res.ok) throw new Error(res.status);
+      const rows = (await res.json())
+        .filter(r=>r && typeof r.cheapest==="number" && r.date)
+        .sort((a,b)=> a.date < b.date ? -1 : 1);
+      render(rows);
+    }catch(e){
+      $("status").textContent = location.protocol==="file:"
+        ? "Hãy mở qua server (chạy start-server) hoặc trang GitHub Pages, không mở file trực tiếp."
+        : "Không tải được dữ liệu giá.";
+    }
+  }
+  loadData();
+
+  // Nút "Cập nhật ngay" chỉ có khi chạy bằng Flask trên máy (có /api/status)
+  const btn = $("refresh");
+  async function pollStatus(){
+    try{
+      const s = await (await fetch("api/status",{cache:"no-store"})).json();
+      btn.hidden = false;
+      btn.disabled = s.running;
+      btn.textContent = s.running ? "Đang lấy giá…" : "Cập nhật ngay";
+      if(s.last_error && !s.running) $("status").textContent = "Lần crawl gần nhất lỗi: " + s.last_error;
+      return s;
+    }catch(e){ btn.hidden = true; return null; }
+  }
+  pollStatus();
+  btn.addEventListener("click", async ()=>{
+    btn.disabled = true; btn.textContent = "Đang lấy giá…";
+    try{ await fetch("api/refresh",{method:"POST"}); }catch(e){}
+    const t = setInterval(async ()=>{
+      const s = await pollStatus();
+      if(!s || !s.running){ clearInterval(t); loadData(); }
+    }, 4000);
+  });
+})();
+</script>
+</body>
+</html>
