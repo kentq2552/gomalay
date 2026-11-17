@@ -58,8 +58,18 @@
     "price": 7221321
    }
   ],
-  "hotels": [],
+  "hotels": [
+   {
+    "name": "Astar Hotel Bukit Bintang",
+    "price": 489000,
+    "rating": 4.5,
+    "reviews": "1,0 N",
+    "why": "Vị trí rất lý tưởng",
+    "chain": false,
+    "usd": 19
+   }
+  ],
   "date": "2026-11-17",
-  "fetchedAt": "2026-11-17T14:16+07:00"
+  "fetchedAt": "2026-11-17T14:48+07:00"
  }
 ]
