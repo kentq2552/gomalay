@@ -8,7 +8,7 @@ Crawl giá vé khứ hồi (Google Flights) và khách sạn Bukit Bintang dư�
 
 1. GitHub Desktop → **File → Add local repository** → chọn thư mục này → *create a repository* → **Commit** → **Publish repository** (bỏ chọn *Keep this code private* nếu muốn dùng GitHub Pages miễn phí).
 2. Trên github.com, vào repo → **Settings → Pages** → Source: *Deploy from a branch* → Branch: `main` / `(root)` → Save. Vài phút sau trang có ở `https://<tên-github>.github.io/<tên-repo>/`.
-3. Repo → **Actions** → chọn *Crawl giá vé KL* → **Run workflow** để chạy thử ngay.
+3. Repo → **Actions** → chọn *Crawl giá vé KL* → **Run workflow** để chạy thử ngay. Không vào được web thì cứ sửa `crawler.py`/`update_prices.py`/workflow rồi **Push** từ GitHub Desktop, workflow cũng tự chạy.
 4. Trước khi sửa code trên máy, bấm **Fetch origin / Pull** trong GitHub Desktop để lấy dữ liệu giá mới nhất.
 
 Workflow lỗi (ví dụ Google chặn) thì GitHub gửi email báo.
