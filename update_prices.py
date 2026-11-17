@@ -34,6 +34,11 @@ def save_rows(rows: list) -> None:
     tmp = DATA_FILE.with_suffix(".tmp")
     tmp.write_text(json.dumps(rows, ensure_ascii=False, indent=1), encoding="utf-8")
     os.replace(tmp, DATA_FILE)
+    # Bản .js để mở index.html trực tiếp từ ổ đĩa (file://) vẫn đọc được giá
+    js = DATA_FILE.with_suffix(".js")
+    tmp_js = DATA_FILE.with_suffix(".js.tmp")
+    tmp_js.write_text("window.PRICE_ROWS = " + json.dumps(rows, ensure_ascii=False) + ";\n", encoding="utf-8")
+    os.replace(tmp_js, js)
 
 
 def update() -> tuple[dict, list]:

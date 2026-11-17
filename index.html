@@ -322,18 +322,29 @@ td.r,th.r{text-align:right}
   }
 
   // Dữ liệu: data/prices.json (Flask trên máy hoặc GitHub Pages đều phục vụ đường dẫn này)
-  async function loadData(){
-    try{
+  // Mở file trực tiếp (file://) thì trình duyệt chặn fetch, nên dùng bản data/prices.js nạp bằng <script>.
+  async function getRows(){
+    if(location.protocol !== "file:"){
       const res = await fetch("data/prices.json?t=" + Date.now(), {cache:"no-store"});
       if(!res.ok) throw new Error(res.status);
-      const rows = (await res.json())
+      return res.json();
+    }
+    return new Promise((ok, fail)=>{
+      const s = document.createElement("script");
+      s.src = "data/prices.js?t=" + Date.now();
+      s.onload = ()=> window.PRICE_ROWS ? ok(window.PRICE_ROWS) : fail(new Error("no data"));
+      s.onerror = fail;
+      document.head.appendChild(s);
+    });
+  }
+  async function loadData(){
+    try{
+      const rows = (await getRows())
         .filter(r=>r && typeof r.cheapest==="number" && r.date)
         .sort((a,b)=> a.date < b.date ? -1 : 1);
       render(rows);
     }catch(e){
-      $("status").textContent = location.protocol==="file:"
-        ? "Hãy mở qua server (chạy start-server) hoặc trang GitHub Pages, không mở file trực tiếp."
-        : "Không tải được dữ liệu giá.";
+      $("status").textContent = "Không tải được dữ liệu giá.";
     }
   }
   loadData();
