@@ -14,6 +14,7 @@ from crawler import crawl
 
 BASE = Path(__file__).resolve().parent
 DATA_FILE = BASE / "data" / "prices.json"
+DEBUG_FILE = BASE / "data" / "debug-hotels.txt"  # chỉ có khi lần crawl khách sạn gần nhất lỗi
 VN_TZ = timezone(timedelta(hours=7))  # giờ Việt Nam, đúng cả khi chạy trên server GitHub (UTC)
 
 log = logging.getLogger("update")
@@ -46,7 +47,19 @@ def update() -> tuple[dict, list]:
     rec = crawl()
     rec["date"] = today()
     rec["fetchedAt"] = datetime.now(VN_TZ).isoformat(timespec="minutes")
-    old = [r for r in load_rows() if r.get("date") != rec["date"]]
+    rows = load_rows()
+    debug = rec.pop("_hotelDebug", None)
+    if debug:
+        DEBUG_FILE.write_text(debug, encoding="utf-8")
+    elif DEBUG_FILE.exists():
+        DEBUG_FILE.unlink()
+    if not rec.get("hotels"):
+        # Không lấy được khách sạn thì giữ danh sách gần nhất, ghi rõ ngày lấy
+        prev = next((r for r in reversed(rows) if r.get("hotels")), None)
+        if prev:
+            rec["hotels"] = prev["hotels"]
+            rec["hotelsFrom"] = prev.get("hotelsFrom", prev["date"])
+    old = [r for r in rows if r.get("date") != rec["date"]]
     save_rows(sorted(old + [rec], key=lambda r: r["date"]))
     return rec, old
 

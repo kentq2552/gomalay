@@ -148,6 +148,7 @@ td.r,th.r{text-align:right}
 
   <section aria-labelledby="h-hotel">
     <div class="sec-head"><h2 id="h-hotel">Khách sạn dưới 1 triệu/đêm, gần Bukit Bintang</h2><span class="muted" style="font-size:13px">Giá 1 đêm, ngày 30/4–2/5, điểm Google</span></div>
+    <p id="hotel-note" class="muted" style="font-size:13px;margin:0 0 8px"></p>
     <div class="tbl"><table>
       <thead><tr><th>Khách sạn</th><th class="r">Giá/đêm</th><th class="r">Điểm (lượt)</th><th>Vì sao chọn</th></tr></thead>
       <tbody id="hotel-body"><tr><td colspan="4" class="empty">Chưa có dữ liệu.</td></tr></tbody>
@@ -289,6 +290,8 @@ td.r,th.r{text-align:right}
     if(pl.length===1) $("plat-body").innerHTML += '<tr><td colspan="3" class="muted" style="font-size:13px">Bot tự động chỉ thấy giá bán trực tiếp của hãng. Muốn so giá đại lý (Agoda, Trip.com, Traveloka…) thì bấm các nút bên dưới.</td></tr>';
 
     // hotels
+    $("hotel-note").textContent = last.hotelsFrom && last.hotelsFrom !== last.date
+      ? `Hôm nay không lấy được giá khách sạn, đang hiện giá ngày ${last.hotelsFrom.split("-").reverse().join("/")}.` : "";
     $("hotel-body").innerHTML = hotels.length ? hotels.map(h=>`<tr class="${goodH[0]&&h.name===goodH[0].name?"best":""}"><td><strong>${esc(h.name)}</strong>${h.chain?'<span class="tag amber">Chuỗi trong TikTok</span>':""}</td><td class="r num">${fmt(h.price)} ₫</td><td class="r num">${h.rating} (${esc(h.reviews||"")})</td><td>${esc(h.why||"")}</td></tr>`).join("") : '<tr><td colspan="4" class="empty">Chưa có dữ liệu.</td></tr>';
 
     // cost

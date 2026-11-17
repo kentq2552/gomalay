@@ -169,13 +169,21 @@ def crawl_hotels(page):
     except PWTimeout:
         pass
     page.wait_for_timeout(2500)
-    return parse_hotels(page.inner_text("body"))
+    text = page.inner_text("body")
+    hotels = parse_hotels(text)
+    if not hotels:  # để lại nội dung trang cho dễ tìm lỗi (update_prices ghi ra data/debug-hotels.txt)
+        raise HotelParseError(f"URL: {page.url}\n\n{text[:6000]}")
+    return hotels
+
+
+class HotelParseError(Exception):
+    pass
 
 
 def parse_hotels(text: str):
     lines = [l.strip() for l in text.splitlines() if l.strip()]
-    price_re = re.compile(r"^([\d\.]+)\s*₫$")
-    rating_re = re.compile(r"^(\d),(\d)$")
+    price_re = re.compile(r"^(\d[\d\.,\s]*)\s*₫$")
+    rating_re = re.compile(r"^(\d)[,\.](\d)$")
     reviews_re = re.compile(r"^\(([\d,\.]+\s*N?)\)$")
     skip = ("GIÁ TỐT", "Rẻ hơn", "cho khách sạn", "Đã giảm", "Ưu đãi")
     hotels = []
@@ -237,8 +245,9 @@ def crawl(headless: bool = True) -> dict:
             try:
                 rec["hotels"] = crawl_hotels(page)
             except Exception as e:  # khách sạn lỗi thì vẫn giữ giá vé
-                log.warning("Lỗi crawl khách sạn: %s", e)
+                log.warning("Lỗi crawl khách sạn: %s", str(e).splitlines()[0] if str(e) else e)
                 rec["hotels"] = []
+                rec["_hotelDebug"] = f"{type(e).__name__}\n{e}"
             return rec
         finally:
             browser.close()
