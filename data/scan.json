@@ -1,0 +1,430 @@
+{
+ "scannedAt": "2026-11-18T12:06+07:00",
+ "rows": [
+  {
+   "name": "Cuối tuần",
+   "depart": "2026-12-04",
+   "return": "2026-12-06",
+   "cheapest": 6778966,
+   "airline": "AirAsia 21:00",
+   "direct": true,
+   "cheapestDirect": 6778966,
+   "directAirline": "AirAsia 21:00"
+  },
+  {
+   "name": "Cuối tuần",
+   "depart": "2026-12-11",
+   "return": "2026-12-13",
+   "cheapest": 9859949,
+   "airline": "Scoot 09:35",
+   "direct": false,
+   "cheapestDirect": 15739440,
+   "directAirline": "AirAsia 08:55"
+  },
+  {
+   "name": "Cuối tuần",
+   "depart": "2026-12-18",
+   "return": "2026-12-20",
+   "cheapest": 7456394,
+   "airline": "AirAsia 21:00",
+   "direct": true,
+   "cheapestDirect": 7456394,
+   "directAirline": "AirAsia 21:00"
+  },
+  {
+   "name": "Cuối tuần",
+   "depart": "2026-12-25",
+   "return": "2026-12-27",
+   "cheapest": 7063348,
+   "airline": "AirAsia 08:55",
+   "direct": true,
+   "cheapestDirect": 7063348,
+   "directAirline": "AirAsia 08:55"
+  },
+  {
+   "name": "Cuối tuần",
+   "depart": "2027-01-01",
+   "return": "2027-01-03",
+   "cheapest": 6382486,
+   "airline": "AirAsia 08:55",
+   "direct": true,
+   "cheapestDirect": 6382486,
+   "directAirline": "AirAsia 08:55"
+  },
+  {
+   "name": "Cuối tuần",
+   "depart": "2027-01-08",
+   "return": "2027-01-10",
+   "cheapest": 4676962,
+   "airline": "AirAsia 08:55",
+   "direct": true,
+   "cheapestDirect": 4676962,
+   "directAirline": "AirAsia 08:55"
+  },
+  {
+   "name": "Cuối tuần",
+   "depart": "2027-01-15",
+   "return": "2027-01-17",
+   "cheapest": 4325532,
+   "airline": "AirAsia 08:55",
+   "direct": true,
+   "cheapestDirect": 4325532,
+   "directAirline": "AirAsia 08:55"
+  },
+  {
+   "name": "Cuối tuần",
+   "depart": "2027-01-22",
+   "return": "2027-01-24",
+   "cheapest": 4540454,
+   "airline": "AirAsia 08:55",
+   "direct": true,
+   "cheapestDirect": 4540454,
+   "directAirline": "AirAsia 08:55"
+  },
+  {
+   "name": "Cuối tuần",
+   "depart": "2027-01-29",
+   "return": "2027-01-31",
+   "cheapest": 4760000,
+   "airline": "Vietjet 07:10",
+   "direct": true,
+   "cheapestDirect": 4760000,
+   "directAirline": "Vietjet 07:10"
+  },
+  {
+   "name": "Cuối tuần",
+   "depart": "2027-02-05",
+   "return": "2027-02-07",
+   "cheapest": 6623394,
+   "airline": "AirAsia 14:50",
+   "direct": true,
+   "cheapestDirect": 6623394,
+   "directAirline": "AirAsia 14:50"
+  },
+  {
+   "name": "Cuối tuần",
+   "depart": "2027-02-12",
+   "return": "2027-02-14",
+   "cheapest": 6210000,
+   "airline": "Vietjet 07:10",
+   "direct": true,
+   "cheapestDirect": 6210000,
+   "directAirline": "Vietjet 07:10"
+  },
+  {
+   "name": "Cuối tuần",
+   "depart": "2027-02-19",
+   "return": "2027-02-21",
+   "cheapest": 4760000,
+   "airline": "Vietjet 07:10",
+   "direct": true,
+   "cheapestDirect": 4760000,
+   "directAirline": "Vietjet 07:10"
+  },
+  {
+   "name": "Cuối tuần",
+   "depart": "2027-02-26",
+   "return": "2027-02-28",
+   "cheapest": 4760000,
+   "airline": "Vietjet 07:10",
+   "direct": true,
+   "cheapestDirect": 4760000,
+   "directAirline": "Vietjet 07:10"
+  },
+  {
+   "name": "Cuối tuần",
+   "depart": "2027-03-05",
+   "return": "2027-03-07",
+   "cheapest": 5695901,
+   "airline": "AirAsia 08:55",
+   "direct": true,
+   "cheapestDirect": 5695901,
+   "directAirline": "AirAsia 08:55"
+  },
+  {
+   "name": "Cuối tuần",
+   "depart": "2027-03-12",
+   "return": "2027-03-14",
+   "cheapest": 5780000,
+   "airline": "Vietjet 07:10",
+   "direct": true,
+   "cheapestDirect": 5780000,
+   "directAirline": "Vietjet 07:10"
+  },
+  {
+   "name": "Cuối tuần",
+   "depart": "2027-03-19",
+   "return": "2027-03-21",
+   "cheapest": 4760000,
+   "airline": "Vietjet 07:10",
+   "direct": true,
+   "cheapestDirect": 4760000,
+   "directAirline": "Vietjet 07:10"
+  },
+  {
+   "name": "Cuối tuần",
+   "depart": "2027-03-26",
+   "return": "2027-03-28",
+   "cheapest": 4574941,
+   "airline": "Vietjet 07:10",
+   "direct": true,
+   "cheapestDirect": 4574941,
+   "directAirline": "Vietjet 07:10"
+  },
+  {
+   "name": "Cuối tuần",
+   "depart": "2027-04-02",
+   "return": "2027-04-04",
+   "cheapest": 4760000,
+   "airline": "Vietjet 07:25",
+   "direct": true,
+   "cheapestDirect": 4760000,
+   "directAirline": "Vietjet 07:25"
+  },
+  {
+   "name": "Cuối tuần",
+   "depart": "2027-04-09",
+   "return": "2027-04-11",
+   "cheapest": 4739751,
+   "airline": "AirAsia 09:00",
+   "direct": true,
+   "cheapestDirect": 4739751,
+   "directAirline": "AirAsia 09:00"
+  },
+  {
+   "name": "Giỗ Tổ Hùng Vương",
+   "depart": "2027-04-16",
+   "return": "2027-04-18",
+   "cheapest": 4760000,
+   "airline": "Vietjet 07:25",
+   "direct": true,
+   "cheapestDirect": 4760000,
+   "directAirline": "Vietjet 07:25"
+  },
+  {
+   "name": "Cuối tuần",
+   "depart": "2027-04-23",
+   "return": "2027-04-25",
+   "cheapest": 4580944,
+   "airline": "Vietjet 07:25",
+   "direct": true,
+   "cheapestDirect": 4580944,
+   "directAirline": "Vietjet 07:25"
+  },
+  {
+   "name": "30/4 – 1/5",
+   "depart": "2027-04-30",
+   "return": "2027-05-02",
+   "cheapest": 6851348,
+   "airline": "AirAsia 09:00",
+   "direct": true,
+   "cheapestDirect": 6851348,
+   "directAirline": "AirAsia 09:00"
+  },
+  {
+   "name": "Cuối tuần",
+   "depart": "2027-05-07",
+   "return": "2027-05-09",
+   "cheapest": 4574941,
+   "airline": "Vietjet 07:25",
+   "direct": true,
+   "cheapestDirect": 4574941,
+   "directAirline": "Vietjet 07:25"
+  },
+  {
+   "name": "Cuối tuần",
+   "depart": "2027-05-14",
+   "return": "2027-05-16",
+   "cheapest": 5580000,
+   "airline": "Vietjet 07:25",
+   "direct": true,
+   "cheapestDirect": 5580000,
+   "directAirline": "Vietjet 07:25"
+  },
+  {
+   "name": "Cuối tuần",
+   "depart": "2027-05-21",
+   "return": "2027-05-23",
+   "cheapest": 4760000,
+   "airline": "Vietjet 07:25",
+   "direct": true,
+   "cheapestDirect": 4760000,
+   "directAirline": "Vietjet 07:25"
+  },
+  {
+   "name": "Cuối tuần",
+   "depart": "2027-05-28",
+   "return": "2027-05-30",
+   "cheapest": 4760000,
+   "airline": "Vietjet 07:25",
+   "direct": true,
+   "cheapestDirect": 4760000,
+   "directAirline": "Vietjet 07:25"
+  },
+  {
+   "name": "Cuối tuần",
+   "depart": "2027-06-04",
+   "return": "2027-06-06",
+   "cheapest": 5570626,
+   "airline": "AirAsia 09:00",
+   "direct": true,
+   "cheapestDirect": 5570626,
+   "directAirline": "AirAsia 09:00"
+  },
+  {
+   "name": "Cuối tuần",
+   "depart": "2027-06-11",
+   "return": "2027-06-13",
+   "cheapest": 4540454,
+   "airline": "AirAsia 09:00",
+   "direct": true,
+   "cheapestDirect": 4540454,
+   "directAirline": "AirAsia 09:00"
+  },
+  {
+   "name": "Cuối tuần",
+   "depart": "2027-06-18",
+   "return": "2027-06-20",
+   "cheapest": 4733179,
+   "airline": "AirAsia 09:00",
+   "direct": true,
+   "cheapestDirect": 4733179,
+   "directAirline": "AirAsia 09:00"
+  },
+  {
+   "name": "Cuối tuần",
+   "depart": "2027-06-25",
+   "return": "2027-06-27"
+  },
+  {
+   "name": "Cuối tuần",
+   "depart": "2027-07-02",
+   "return": "2027-07-04"
+  },
+  {
+   "name": "Cuối tuần",
+   "depart": "2027-07-09",
+   "return": "2027-07-11",
+   "cheapest": 4540454,
+   "airline": "AirAsia 09:00",
+   "direct": true,
+   "cheapestDirect": 4540454,
+   "directAirline": "AirAsia 09:00"
+  },
+  {
+   "name": "Cuối tuần",
+   "depart": "2027-07-16",
+   "return": "2027-07-18",
+   "cheapest": 4540454,
+   "airline": "AirAsia 09:00",
+   "direct": true,
+   "cheapestDirect": 4540454,
+   "directAirline": "AirAsia 09:00"
+  },
+  {
+   "name": "Cuối tuần",
+   "depart": "2027-07-23",
+   "return": "2027-07-25",
+   "cheapest": 4953901,
+   "airline": "AirAsia 09:00",
+   "direct": true,
+   "cheapestDirect": 4953901,
+   "directAirline": "AirAsia 09:00"
+  },
+  {
+   "name": "Cuối tuần",
+   "depart": "2027-07-30",
+   "return": "2027-08-01"
+  },
+  {
+   "name": "Cuối tuần",
+   "depart": "2027-08-06",
+   "return": "2027-08-08",
+   "cheapest": 4760000,
+   "airline": "Vietjet 07:25",
+   "direct": true,
+   "cheapestDirect": 4760000,
+   "directAirline": "Vietjet 07:25"
+  },
+  {
+   "name": "Cuối tuần",
+   "depart": "2027-08-13",
+   "return": "2027-08-15"
+  },
+  {
+   "name": "Cuối tuần",
+   "depart": "2027-08-20",
+   "return": "2027-08-22"
+  },
+  {
+   "name": "Cuối tuần",
+   "depart": "2027-08-27",
+   "return": "2027-08-29",
+   "cheapest": 4760000,
+   "airline": "Vietjet 07:25",
+   "direct": true,
+   "cheapestDirect": 4760000,
+   "directAirline": "Vietjet 07:25"
+  },
+  {
+   "name": "Quốc khánh 2/9",
+   "depart": "2027-09-02",
+   "return": "2027-09-05"
+  },
+  {
+   "name": "Cuối tuần",
+   "depart": "2027-09-03",
+   "return": "2027-09-05"
+  },
+  {
+   "name": "Cuối tuần",
+   "depart": "2027-09-10",
+   "return": "2027-09-12",
+   "cheapest": 4760000,
+   "airline": "Vietjet 07:25",
+   "direct": true,
+   "cheapestDirect": 4760000,
+   "directAirline": "Vietjet 07:25"
+  },
+  {
+   "name": "Cuối tuần",
+   "depart": "2027-09-17",
+   "return": "2027-09-19"
+  },
+  {
+   "name": "Cuối tuần",
+   "depart": "2027-09-24",
+   "return": "2027-09-26",
+   "cheapest": 5367348,
+   "airline": "AirAsia 09:00",
+   "direct": true,
+   "cheapestDirect": 5367348,
+   "directAirline": "AirAsia 09:00"
+  },
+  {
+   "name": "Cuối tuần",
+   "depart": "2027-10-01",
+   "return": "2027-10-03",
+   "cheapest": 5367348,
+   "airline": "AirAsia 09:00",
+   "direct": true,
+   "cheapestDirect": 5367348,
+   "directAirline": "AirAsia 09:00"
+  },
+  {
+   "name": "Cuối tuần",
+   "depart": "2027-10-08",
+   "return": "2027-10-10",
+   "cheapest": 5367348,
+   "airline": "AirAsia 09:00",
+   "direct": true,
+   "cheapestDirect": 5367348,
+   "directAirline": "AirAsia 09:00"
+  },
+  {
+   "name": "Cuối tuần",
+   "depart": "2027-10-15",
+   "return": "2027-10-17"
+  }
+ ]
+}
