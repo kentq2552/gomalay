@@ -1,0 +1,6 @@
+HotelParseError
+URL: https://www.google.com/travel/search?q=hotels%20Bukit%20Bintang%20Kuala%20Lumpur&checkin=2027-04-30&checkout=2027-05-02&adults=1&curr=VND&hl=vi&gl=VN
+
+500. Đã xảy ra lỗi.
+
+Đã xảy ra lỗi. Vui lòng thử lại sau. Đó là tất cả những gì chúng tôi biết.
