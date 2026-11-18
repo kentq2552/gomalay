@@ -178,14 +178,51 @@ def parse_booking_options(text: str):
     return platforms, total_low
 
 
+DATES_JS = """() => [...document.querySelectorAll('input')]
+  .filter(i => /Nhận phòng|Trả phòng/.test(i.placeholder) && i.offsetParent).map(i => i.value)"""
+
+
+def set_hotel_dates(page, checkin: str, checkout: str):
+    """Google Hotels bỏ qua checkin/checkout trên URL (luôn lấy 1 đêm gần nhất),
+    nên phải gõ ngày vào hộp chọn ngày rồi bấm Xong."""
+    page.locator('input[placeholder="Nhận phòng"]').first.click()
+    page.wait_for_timeout(1200)
+    for ph, iso in (("Nhận phòng", checkin), ("Trả phòng", checkout)):
+        y, m, d = iso.split("-")
+        el = page.locator(f'input[placeholder="{ph}"]:visible').last
+        el.click()
+        el.press("Control+A")
+        el.type(f"{d}/{m}/{y}", delay=40)
+        el.press("Enter")
+        page.wait_for_timeout(800)
+    page.locator("button:visible", has_text="Xong").first.click()
+    page.wait_for_timeout(5000)
+    want = [f"{int(iso[8:])} thg {int(iso[5:7])}" for iso in (checkin, checkout)]
+    got = page.evaluate(DATES_JS)
+    if not all(any(w in g for g in got) for w in want):
+        raise ValueError(f"Không đặt được ngày khách sạn {checkin}→{checkout} (trang đang là {got})")
+
+
+def open_hotels(page, url: str, checkin: str, checkout: str, tries: int = 2):
+    for attempt in range(tries):
+        page.goto(url, wait_until="domcontentloaded", timeout=60000)
+        _check_blocked(page)
+        try:
+            page.get_by_text("Xem giá").first.wait_for(timeout=25000)
+        except PWTimeout:
+            pass
+        page.wait_for_timeout(1500)
+        try:
+            set_hotel_dates(page, checkin, checkout)
+            return
+        except (ValueError, PWTimeout) as e:
+            if attempt == tries - 1:
+                raise ValueError(str(e)) from e
+            log.info("Đặt ngày khách sạn lỗi, thử lại: %s", e)
+
+
 def crawl_hotels(page):
-    page.goto(HOTEL_URL, wait_until="domcontentloaded", timeout=60000)
-    _check_blocked(page)
-    try:
-        page.get_by_text("Xem giá").first.wait_for(timeout=25000)
-    except PWTimeout:
-        pass
-    page.wait_for_timeout(2500)
+    open_hotels(page, HOTEL_URL, DEPART, RETURN)
     # Mỗi trang chỉ ~18 khách sạn, phần lớn đắt, nên đọc thêm 2 trang sau
     text = page.inner_text("body")
     for _ in range(2):
@@ -209,7 +246,8 @@ class HotelParseError(Exception):
     pass
 
 
-def parse_hotels(text: str):
+def parse_hotels_all(text: str):
+    """Mọi khách sạn đọc được trên trang (chưa lọc giá/điểm)."""
     lines = [l.strip() for l in text.splitlines() if l.strip()]
     price_re = re.compile(r"^(\d[\d\.,\s]*)\s*(₫|US\$)$")
     rating_re = re.compile(r"^(\d)[,\.](\d)$")
@@ -249,6 +287,19 @@ def parse_hotels(text: str):
         })
         if usd is not None:
             hotels[-1]["usd"] = usd
+    return hotels
+
+
+def review_count(s: str) -> int:
+    """'1.234' -> 1234, '2,3 N' -> 2300 (N = nghìn)."""
+    s = s.strip()
+    if s.endswith("N"):
+        return int(float(s[:-1].strip().replace(".", "").replace(",", ".")) * 1000)
+    return _num(s)
+
+
+def parse_hotels(text: str):
+    hotels = parse_hotels_all(text)
     seen, out = set(), []
     for h in sorted(hotels, key=lambda h: h["price"]):
         if (h["name"] in seen or h["price"] >= HOTEL_MAX_PRICE or h["rating"] < HOTEL_MIN_RATING

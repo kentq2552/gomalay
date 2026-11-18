@@ -8,10 +8,12 @@ nên nhanh (~10 giây/cặp ngày). Mỗi lần chạy nghỉ vài giây giữa 
 import json
 import logging
 import random
+import re
 import sys
 import time
 from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
+from urllib.parse import quote
 
 from playwright.sync_api import sync_playwright
 
@@ -68,9 +70,61 @@ def scan_one(page, dep, ret):
     }
 
 
+# Khách sạn "ổn nhất": tìm theo view KLCC + hồ bơi tầng thượng, rồi chỉ giữ chỗ được chấm cao
+# và có nhiều lượt đánh giá (đủ đông người ở để điểm số đáng tin).
+HOTEL_QUERY = "hotels with KLCC view rooftop pool Bukit Bintang"
+HOTEL_MIN_RATING = 4.3
+HOTEL_MIN_REVIEWS = 1500
+
+
+def hotel_url(dep, ret):
+    return ("https://www.google.com/travel/search?q=" + quote(HOTEL_QUERY)
+            + f"&checkin={dep}&checkout={ret}&adults=1&curr=VND&hl=vi&gl=VN")
+
+
+def hotel_one(page, dep, ret):
+    crawler.open_hotels(page, hotel_url(dep, ret), dep, ret)
+    text = page.inner_text("body")
+    nxt = page.get_by_text("Tiếp theo", exact=True)
+    if nxt.count():
+        try:
+            nxt.first.click()
+            page.wait_for_timeout(3500)
+            text += "\n" + page.inner_text("body")
+        except Exception:
+            pass
+    seen, good = set(), []
+    for h in crawler.parse_hotels_all(text):
+        n = crawler.review_count(h["reviews"])
+        if (h["name"] in seen or h["rating"] < HOTEL_MIN_RATING or n < HOTEL_MIN_REVIEWS
+                or re.search(r"hostel|capsule|backpacker|dorm|phòng ngủ|^căn hộ|^nhà ", h["name"], re.I)):
+            continue
+        seen.add(h["name"])
+        good.append({"name": h["name"], "price": h["price"], "rating": h["rating"], "reviews": n})
+    if not good:
+        return None
+    # điểm cao nhất trước, hoà điểm thì chỗ nhiều đánh giá hơn
+    good.sort(key=lambda h: (-h["rating"], -h["reviews"]))
+    nights = (date.fromisoformat(ret) - date.fromisoformat(dep)).days
+    best = good[0]
+    # lựa chọn đáng tiền: rẻ nhất trong nhóm đạt chuẩn (≥4,3★, nhiều đánh giá)
+    cheap = min(good, key=lambda h: h["price"])
+    return {**best, "nights": nights, "total": best["price"] * nights,
+            "cheap": {**cheap, "total": cheap["price"] * nights} if cheap is not best else None,
+            "alts": [{k: h[k] for k in ("name", "price", "rating", "reviews")} for h in good[1:3]]}
+
+
 def main():
     logging.basicConfig(level=logging.INFO, format="%(asctime)s %(message)s")
-    pairs = date_pairs()
+    hotels_only = "--hotels-only" in sys.argv  # giữ giá vé đã rà, chỉ rà thêm khách sạn
+    missing_only = "--missing" in sys.argv     # chỉ rà khách sạn cho các dòng chưa có
+    if hotels_only:
+        old = json.loads(OUT.read_text(encoding="utf-8"))
+        old_rows = {(r["depart"], r["return"]): r for r in old["rows"]}
+        pairs = [(r["name"], r["depart"], r["return"]) for r in old["rows"]
+                 if not (missing_only and r.get("hotel"))]
+    else:
+        pairs = date_pairs()
     results = []
     with sync_playwright() as p:
         browser = crawler._launch(p, True)
@@ -78,21 +132,35 @@ def main():
                                   viewport={"width": 1366, "height": 900}, timezone_id="Asia/Ho_Chi_Minh")
         page = ctx.new_page()
         for i, (name, dep, ret) in enumerate(pairs, 1):
+            r = {}
             try:
-                r = scan_one(page, dep, ret)
+                if hotels_only:
+                    r = {k: v for k, v in old_rows[(dep, ret)].items()
+                         if k not in ("name", "depart", "return", "hotel")}
+                else:
+                    r = scan_one(page, dep, ret) or {}
+                    time.sleep(random.uniform(2, 4))
+                r["hotel"] = hotel_one(page, dep, ret)
             except RuntimeError as e:
                 log.error("Dừng: %s", e)
                 break
             except Exception as e:
                 log.warning("%s → %s lỗi: %s", dep, ret, e)
-                r = None
-            row = {"name": name, "depart": dep, "return": ret, **(r or {})}
+            row = {"name": name, "depart": dep, "return": ret, **r}
             results.append(row)
-            log.info("[%d/%d] %s %s→%s: %s", i, len(pairs), name, dep, ret,
-                     f'{r["cheapest"]:,} ₫ ({r["airline"]})' if r else "không có dữ liệu")
+            h = r.get("hotel")
+            log.info("[%d/%d] %s %s→%s: vé %s | KS %s", i, len(pairs), name, dep, ret,
+                     f'{r["cheapest"]:,} ₫' if r.get("cheapest") else "không có",
+                     f'{h["name"]} {h["price"]:,} ₫/đêm ({h["rating"]}, {h["reviews"]})' if h else "không có")
             time.sleep(random.uniform(3, 6))
         browser.close()
-    data = {"scannedAt": datetime.now(VN_TZ).isoformat(timespec="minutes"), "rows": results}
+    if hotels_only:  # giữ nguyên các dòng không rà lần này (--missing, hoặc bị dừng giữa chừng)
+        done = {(r["depart"], r["return"]) for r in results}
+        results += [r for k, r in old_rows.items() if k not in done]
+        results.sort(key=lambda r: r["depart"])
+    data = {"scannedAt": datetime.now(VN_TZ).isoformat(timespec="minutes"),
+            "hotelQuery": HOTEL_QUERY, "hotelMinRating": HOTEL_MIN_RATING,
+            "hotelMinReviews": HOTEL_MIN_REVIEWS, "rows": results}
     OUT.write_text(json.dumps(data, ensure_ascii=False, indent=1), encoding="utf-8")
     # bản .js cho trường hợp mở index.html trực tiếp từ ổ đĩa
     OUT.with_suffix(".js").write_text("window.SCAN = " + json.dumps(data, ensure_ascii=False) + ";\n",
