@@ -1,4 +1,16 @@
-Bắt đầu: 2026-11-18 12:56:06 (commit 61482d2)
-2026-11-18 05:57:11,126 WARNING Lỗi crawl khách sạn: URL: https://www.google.com/travel/search?q=hotels%20Bukit%20Bintang%20Kuala%20Lumpur&checkin=2027-04-30&checkout=2027-05-02&adults=1&curr=VND&hl=vi&gl=VN
-Rẻ nhất hôm nay 6,851,348 ₫ (AirAsia 09:00 / về 12:00), so với 2026-11-17: +0 ₫
-Kết quả: success
+Bắt đầu: 2026-11-19 12:55:57 (commit 5ac7656)
+2026-11-19 05:56:40,774 ERROR Crawl lỗi: Không đọc được danh sách chuyến bay chiều đi.
+Traceback (most recent call last):
+  File "/home/runner/work/gomalay/gomalay/update_prices.py", line 70, in <module>
+    rec, old = update()
+               ^^^^^^^^
+  File "/home/runner/work/gomalay/gomalay/update_prices.py", line 47, in update
+    rec = crawl()
+          ^^^^^^^
+  File "/home/runner/work/gomalay/gomalay/crawler.py", line 282, in crawl
+    rec = crawl_flights(page)
+          ^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/gomalay/gomalay/crawler.py", line 105, in crawl_flights
+    raise RuntimeError("Không đọc được danh sách chuyến bay chiều đi.")
+RuntimeError: Không đọc được danh sách chuyến bay chiều đi.
+Kết quả: failure
