@@ -1,8 +1,11 @@
 {
- "scannedAt": "2026-11-18T14:33+07:00",
+ "scannedAt": "2026-11-19T09:31+07:00",
  "hotelQuery": "hotels with KLCC view rooftop pool Bukit Bintang",
  "hotelMinRating": 4.3,
  "hotelMinReviews": 1500,
+ "midMinRating": 4.1,
+ "midMinReviews": 1000,
+ "midMaxPrice": 1300000,
  "rows": [
   {
    "name": "Cuối tuần",
@@ -14,29 +17,36 @@
    "cheapestDirect": 6778966,
    "directAirline": "AirAsia 21:00",
    "hotel": {
+    "nights": 2,
+    "mid": {
+     "name": "MOV Hotel",
+     "price": 1094975,
+     "rating": 4.2,
+     "reviews": 1600,
+     "total": 2189950
+    },
     "name": "Grand Millennium Hotel Kuala Lumpur",
-    "price": 3869279,
+    "price": 3865112,
     "rating": 4.5,
     "reviews": 9600,
-    "nights": 2,
-    "total": 7738558,
+    "total": 7730224,
     "cheap": {
      "name": "The Robertson Residences Bukit Bintang",
-     "price": 1464448,
+     "price": 1471296,
      "rating": 4.4,
      "reviews": 3300,
-     "total": 2928896
+     "total": 2942592
     },
     "alts": [
      {
       "name": "JW Marriott Hotel Kuala Lumpur",
-      "price": 3635052,
+      "price": 3473901,
       "rating": 4.5,
       "reviews": 9000
      },
      {
       "name": "The Ritz-Carlton, Kuala Lumpur",
-      "price": 4374860,
+      "price": 4345308,
       "rating": 4.5,
       "reviews": 4200
      }
@@ -53,29 +63,30 @@
    "cheapestDirect": 15739440,
    "directAirline": "AirAsia 08:55",
    "hotel": {
+    "nights": 2,
+    "mid": null,
     "name": "Grand Millennium Hotel Kuala Lumpur",
-    "price": 4327208,
+    "price": 4876476,
     "rating": 4.5,
     "reviews": 9600,
-    "nights": 2,
-    "total": 8654416,
+    "total": 9752952,
     "cheap": {
      "name": "The Robertson Residences Bukit Bintang",
-     "price": 1466752,
+     "price": 1468992,
      "rating": 4.4,
      "reviews": 3300,
-     "total": 2933504
+     "total": 2937984
     },
     "alts": [
      {
       "name": "JW Marriott Hotel Kuala Lumpur",
-      "price": 4925326,
+      "price": 4790990,
       "rating": 4.5,
       "reviews": 9000
      },
      {
       "name": "The Ritz-Carlton, Kuala Lumpur",
-      "price": 4772160,
+      "price": 5182069,
       "rating": 4.5,
       "reviews": 4200
      }
@@ -92,29 +103,36 @@
    "cheapestDirect": 7456394,
    "directAirline": "AirAsia 21:00",
    "hotel": {
+    "nights": 2,
+    "mid": {
+     "name": "MOV Hotel",
+     "price": 1049984,
+     "rating": 4.2,
+     "reviews": 1600,
+     "total": 2099968
+    },
     "name": "Grand Millennium Hotel Kuala Lumpur",
-    "price": 3366684,
+    "price": 3357485,
     "rating": 4.5,
     "reviews": 9600,
-    "nights": 2,
-    "total": 6733368,
+    "total": 6714970,
     "cheap": {
      "name": "The Robertson Residences Bukit Bintang",
-     "price": 1475072,
+     "price": 1471296,
      "rating": 4.4,
      "reviews": 3300,
-     "total": 2950144
+     "total": 2942592
     },
     "alts": [
      {
       "name": "JW Marriott Hotel Kuala Lumpur",
-      "price": 3854720,
+      "price": 3458017,
       "rating": 4.5,
       "reviews": 9000
      },
      {
       "name": "The Ritz-Carlton, Kuala Lumpur",
-      "price": 4648690,
+      "price": 4468873,
       "rating": 4.5,
       "reviews": 4200
      }
@@ -131,29 +149,30 @@
    "cheapestDirect": 7063348,
    "directAirline": "AirAsia 08:55",
    "hotel": {
+    "nights": 2,
+    "mid": null,
     "name": "Grand Millennium Hotel Kuala Lumpur",
-    "price": 4527316,
+    "price": 6861146,
     "rating": 4.5,
     "reviews": 9600,
-    "nights": 2,
-    "total": 9054632,
+    "total": 13722292,
     "cheap": {
-     "name": "Hotel Royal Signature",
-     "price": 2316274,
+     "name": "The Robertson Residences Bukit Bintang",
+     "price": 2508730,
      "rating": 4.4,
-     "reviews": 1500,
-     "total": 4632548
+     "reviews": 3300,
+     "total": 5017460
     },
     "alts": [
      {
       "name": "JW Marriott Hotel Kuala Lumpur",
-      "price": 4528858,
+      "price": 5262187,
       "rating": 4.5,
       "reviews": 9000
      },
      {
       "name": "The Ritz-Carlton, Kuala Lumpur",
-      "price": 4784943,
+      "price": 5422671,
       "rating": 4.5,
       "reviews": 4200
      }
@@ -170,31 +189,38 @@
    "cheapestDirect": 6382486,
    "directAirline": "AirAsia 08:55",
    "hotel": {
+    "nights": 2,
+    "mid": {
+     "name": "Ceylonz Suites by MyKey Global",
+     "price": 1079243,
+     "rating": 4.1,
+     "reviews": 1100,
+     "total": 2158486
+    },
     "name": "Grand Millennium Hotel Kuala Lumpur",
-    "price": 3876967,
+    "price": 3930176,
     "rating": 4.5,
     "reviews": 9600,
-    "nights": 2,
-    "total": 7753934,
+    "total": 7860352,
     "cheap": {
      "name": "The Robertson Residences Bukit Bintang",
-     "price": 1451520,
+     "price": 1456000,
      "rating": 4.4,
      "reviews": 3300,
-     "total": 2903040
+     "total": 2912000
     },
     "alts": [
      {
       "name": "JW Marriott Hotel Kuala Lumpur",
-      "price": 4432992,
+      "price": 4444637,
       "rating": 4.5,
       "reviews": 9000
      },
      {
-      "name": "Pavilion Hotel Kuala Lumpur Managed By Banyan Tree",
-      "price": 5665577,
+      "name": "The Ritz-Carlton, Kuala Lumpur",
+      "price": 5486020,
       "rating": 4.5,
-      "reviews": 2000
+      "reviews": 4200
      }
     ]
    }
@@ -209,29 +235,36 @@
    "cheapestDirect": 4676962,
    "directAirline": "AirAsia 08:55",
    "hotel": {
+    "nights": 2,
+    "mid": {
+     "name": "MOV Hotel",
+     "price": 1019712,
+     "rating": 4.2,
+     "reviews": 1600,
+     "total": 2039424
+    },
     "name": "Grand Millennium Hotel Kuala Lumpur",
-    "price": 3357746,
+    "price": 3347083,
     "rating": 4.5,
     "reviews": 9600,
-    "nights": 2,
-    "total": 6715492,
+    "total": 6694166,
     "cheap": {
      "name": "The Robertson Residences Bukit Bintang",
-     "price": 1470656,
+     "price": 1468992,
      "rating": 4.4,
      "reviews": 3300,
-     "total": 2941312
+     "total": 2937984
     },
     "alts": [
      {
       "name": "JW Marriott Hotel Kuala Lumpur",
-      "price": 3800167,
+      "price": 3803776,
       "rating": 4.5,
       "reviews": 9000
      },
      {
       "name": "The Ritz-Carlton, Kuala Lumpur",
-      "price": 5162458,
+      "price": 5277760,
       "rating": 4.5,
       "reviews": 4200
      }
@@ -248,29 +281,36 @@
    "cheapestDirect": 4325532,
    "directAirline": "AirAsia 08:55",
    "hotel": {
+    "nights": 2,
+    "mid": {
+     "name": "Sleeping Lion Suites",
+     "price": 1297984,
+     "rating": 4.2,
+     "reviews": 2900,
+     "total": 2595968
+    },
     "name": "Grand Millennium Hotel Kuala Lumpur",
-    "price": 3115436,
+    "price": 3339821,
     "rating": 4.5,
     "reviews": 9600,
-    "nights": 2,
-    "total": 6230872,
+    "total": 6679642,
     "cheap": {
      "name": "The Robertson Residences Bukit Bintang",
-     "price": 1470656,
+     "price": 1468992,
      "rating": 4.4,
      "reviews": 3300,
-     "total": 2941312
+     "total": 2937984
     },
     "alts": [
      {
       "name": "JW Marriott Hotel Kuala Lumpur",
-      "price": 3800167,
+      "price": 3818633,
       "rating": 4.5,
       "reviews": 9000
      },
      {
       "name": "The Ritz-Carlton, Kuala Lumpur",
-      "price": 4273215,
+      "price": 4309760,
       "rating": 4.5,
       "reviews": 4200
      }
@@ -287,29 +327,36 @@
    "cheapestDirect": 4540454,
    "directAirline": "AirAsia 08:55",
    "hotel": {
+    "nights": 2,
+    "mid": {
+     "name": "MOV Hotel",
+     "price": 1250729,
+     "rating": 4.2,
+     "reviews": 1600,
+     "total": 2501458
+    },
     "name": "Grand Millennium Hotel Kuala Lumpur",
-    "price": 3042820,
+    "price": 3066167,
     "rating": 4.5,
     "reviews": 9600,
-    "nights": 2,
-    "total": 6085640,
+    "total": 6132334,
     "cheap": {
      "name": "The Robertson Residences Bukit Bintang",
-     "price": 1475072,
+     "price": 1468800,
      "rating": 4.4,
      "reviews": 3300,
-     "total": 2950144
+     "total": 2937600
     },
     "alts": [
      {
       "name": "JW Marriott Hotel Kuala Lumpur",
-      "price": 4295900,
+      "price": 4316775,
       "rating": 4.5,
       "reviews": 9000
      },
      {
       "name": "The Ritz-Carlton, Kuala Lumpur",
-      "price": 4784943,
+      "price": 4665600,
       "rating": 4.5,
       "reviews": 4200
      }
@@ -326,29 +373,36 @@
    "cheapestDirect": 4760000,
    "directAirline": "Vietjet 07:10",
    "hotel": {
+    "nights": 2,
+    "mid": {
+     "name": "MOV Hotel",
+     "price": 1250729,
+     "rating": 4.2,
+     "reviews": 1600,
+     "total": 2501458
+    },
     "name": "Grand Millennium Hotel Kuala Lumpur",
-    "price": 3149375,
+    "price": 3191092,
     "rating": 4.5,
     "reviews": 9600,
-    "nights": 2,
-    "total": 6298750,
+    "total": 6382184,
     "cheap": {
-     "name": "The Robertson Residences Bukit Bintang",
-     "price": 1464448,
-     "rating": 4.4,
-     "reviews": 3300,
-     "total": 2928896
+     "name": "Ramada Suites By Wyndham KLCC",
+     "price": 1457181,
+     "rating": 4.3,
+     "reviews": 3500,
+     "total": 2914362
     },
     "alts": [
      {
       "name": "JW Marriott Hotel Kuala Lumpur",
-      "price": 4130786,
+      "price": 4150858,
       "rating": 4.5,
       "reviews": 9000
      },
      {
       "name": "The Ritz-Carlton, Kuala Lumpur",
-      "price": 4464128,
+      "price": 4247296,
       "rating": 4.5,
       "reviews": 4200
      }
@@ -365,29 +419,36 @@
    "cheapestDirect": 6623394,
    "directAirline": "AirAsia 14:50",
    "hotel": {
+    "nights": 2,
+    "mid": {
+     "name": "MOV Hotel",
+     "price": 1250729,
+     "rating": 4.2,
+     "reviews": 1600,
+     "total": 2501458
+    },
     "name": "Grand Millennium Hotel Kuala Lumpur",
-    "price": 3338463,
+    "price": 3347083,
     "rating": 4.5,
     "reviews": 9600,
-    "nights": 2,
-    "total": 6676926,
+    "total": 6694166,
     "cheap": {
      "name": "The Robertson Residences Bukit Bintang",
-     "price": 1470656,
+     "price": 1468800,
      "rating": 4.4,
      "reviews": 3300,
-     "total": 2941312
+     "total": 2937600
     },
     "alts": [
      {
       "name": "JW Marriott Hotel Kuala Lumpur",
-      "price": 4432772,
+      "price": 4630813,
       "rating": 4.5,
       "reviews": 9000
      },
      {
       "name": "The Ritz-Carlton, Kuala Lumpur",
-      "price": 4678718,
+      "price": 4868324,
       "rating": 4.5,
       "reviews": 4200
      }
@@ -404,29 +465,36 @@
    "cheapestDirect": 6210000,
    "directAirline": "Vietjet 07:10",
    "hotel": {
+    "nights": 2,
+    "mid": {
+     "name": "Sleeping Lion Suites",
+     "price": 1281265,
+     "rating": 4.2,
+     "reviews": 2900,
+     "total": 2562530
+    },
     "name": "Grand Millennium Hotel Kuala Lumpur",
-    "price": 3357746,
+    "price": 3500801,
     "rating": 4.5,
     "reviews": 9600,
-    "nights": 2,
-    "total": 6715492,
+    "total": 7001602,
     "cheap": {
      "name": "The Robertson Residences Bukit Bintang",
-     "price": 1470656,
+     "price": 1468992,
      "rating": 4.4,
      "reviews": 3300,
-     "total": 2941312
+     "total": 2937984
     },
     "alts": [
      {
       "name": "JW Marriott Hotel Kuala Lumpur",
-      "price": 3610353,
+      "price": 3701376,
       "rating": 4.5,
       "reviews": 9000
      },
      {
       "name": "The Ritz-Carlton, Kuala Lumpur",
-      "price": 4464128,
+      "price": 4247296,
       "rating": 4.5,
       "reviews": 4200
      }
@@ -443,29 +511,36 @@
    "cheapestDirect": 4760000,
    "directAirline": "Vietjet 07:10",
    "hotel": {
+    "nights": 2,
+    "mid": {
+     "name": "Sleeping Lion Suites",
+     "price": 1297920,
+     "rating": 4.2,
+     "reviews": 2900,
+     "total": 2595840
+    },
     "name": "Grand Millennium Hotel Kuala Lumpur",
-    "price": 3561344,
+    "price": 3572057,
     "rating": 4.5,
     "reviews": 9600,
-    "nights": 2,
-    "total": 7122688,
+    "total": 7144114,
     "cheap": {
      "name": "Dorsett Kuala Lumpur",
-     "price": 1556386,
+     "price": 1654848,
      "rating": 4.3,
      "reviews": 8000,
-     "total": 3112772
+     "total": 3309696
     },
     "alts": [
      {
       "name": "JW Marriott Hotel Kuala Lumpur",
-      "price": 4626325,
+      "price": 4648805,
       "rating": 4.5,
       "reviews": 9000
      },
      {
       "name": "The Ritz-Carlton, Kuala Lumpur",
-      "price": 4958464,
+      "price": 4720128,
       "rating": 4.5,
       "reviews": 4200
      }
@@ -482,29 +557,36 @@
    "cheapestDirect": 4760000,
    "directAirline": "Vietjet 07:10",
    "hotel": {
+    "nights": 2,
+    "mid": {
+     "name": "Sleeping Lion Suites",
+     "price": 1165133,
+     "rating": 4.2,
+     "reviews": 2900,
+     "total": 2330266
+    },
     "name": "Grand Millennium Hotel Kuala Lumpur",
-    "price": 3378923,
+    "price": 3568244,
     "rating": 4.5,
     "reviews": 9600,
-    "nights": 2,
-    "total": 6757846,
+    "total": 7136488,
     "cheap": {
      "name": "Dorsett Kuala Lumpur",
-     "price": 1518657,
+     "price": 1654848,
      "rating": 4.3,
      "reviews": 8000,
-     "total": 3037314
+     "total": 3309696
     },
     "alts": [
      {
       "name": "JW Marriott Hotel Kuala Lumpur",
-      "price": 3720960,
+      "price": 3707136,
       "rating": 4.5,
       "reviews": 9000
      },
      {
       "name": "The Ritz-Carlton, Kuala Lumpur",
-      "price": 4323517,
+      "price": 4189748,
       "rating": 4.5,
       "reviews": 4200
      }
@@ -521,29 +603,36 @@
    "cheapestDirect": 5695901,
    "directAirline": "AirAsia 08:55",
    "hotel": {
+    "nights": 2,
+    "mid": {
+     "name": "Sleeping Lion Suites",
+     "price": 1295744,
+     "rating": 4.2,
+     "reviews": 2900,
+     "total": 2591488
+    },
     "name": "Grand Millennium Hotel Kuala Lumpur",
-    "price": 3520892,
+    "price": 3547392,
     "rating": 4.5,
     "reviews": 9600,
-    "nights": 2,
-    "total": 7041784,
+    "total": 7094784,
     "cheap": {
-     "name": "Dorsett Kuala Lumpur",
-     "price": 1556386,
+     "name": "Ramada Suites By Wyndham KLCC",
+     "price": 1566400,
      "rating": 4.3,
-     "reviews": 8000,
-     "total": 3112772
+     "reviews": 3500,
+     "total": 3132800
     },
     "alts": [
      {
       "name": "JW Marriott Hotel Kuala Lumpur",
-      "price": 3720960,
+      "price": 3702016,
       "rating": 4.5,
       "reviews": 9000
      },
      {
       "name": "The Ritz-Carlton, Kuala Lumpur",
-      "price": 4323517,
+      "price": 4172160,
       "rating": 4.5,
       "reviews": 4200
      }
@@ -560,31 +649,38 @@
    "cheapestDirect": 5780000,
    "directAirline": "Vietjet 07:10",
    "hotel": {
-    "name": "JW Marriott Hotel Kuala Lumpur",
-    "price": 3720960,
-    "rating": 4.5,
-    "reviews": 9000,
     "nights": 2,
-    "total": 7441920,
+    "mid": {
+     "name": "Sleeping Lion Suites",
+     "price": 1282828,
+     "rating": 4.2,
+     "reviews": 2900,
+     "total": 2565656
+    },
+    "name": "Grand Millennium Hotel Kuala Lumpur",
+    "price": 3624192,
+    "rating": 4.5,
+    "reviews": 9600,
+    "total": 7248384,
     "cheap": {
-     "name": "Dorsett Kuala Lumpur",
-     "price": 1558428,
+     "name": "Ramada Suites By Wyndham KLCC",
+     "price": 1566400,
      "rating": 4.3,
-     "reviews": 8000,
-     "total": 3116856
+     "reviews": 3500,
+     "total": 3132800
     },
     "alts": [
      {
-      "name": "The Ritz-Carlton, Kuala Lumpur",
-      "price": 4467628,
+      "name": "JW Marriott Hotel Kuala Lumpur",
+      "price": 3700864,
       "rating": 4.5,
-      "reviews": 4200
+      "reviews": 9000
      },
      {
-      "name": "The Kuala Lumpur Journal Hotel",
-      "price": 2497725,
+      "name": "The Ritz-Carlton, Kuala Lumpur",
+      "price": 4309760,
       "rating": 4.5,
-      "reviews": 3700
+      "reviews": 4200
      }
     ]
    }
@@ -599,29 +695,36 @@
    "cheapestDirect": 4760000,
    "directAirline": "Vietjet 07:10",
    "hotel": {
+    "nights": 2,
+    "mid": {
+     "name": "Sleeping Lion Suites",
+     "price": 882351,
+     "rating": 4.2,
+     "reviews": 2900,
+     "total": 1764702
+    },
     "name": "Grand Millennium Hotel Kuala Lumpur",
-    "price": 3303684,
+    "price": 3563993,
     "rating": 4.5,
     "reviews": 9600,
-    "nights": 2,
-    "total": 6607368,
+    "total": 7127986,
     "cheap": {
-     "name": "Dorsett Kuala Lumpur",
-     "price": 1755968,
+     "name": "Ramada Suites By Wyndham KLCC",
+     "price": 1570560,
      "rating": 4.3,
-     "reviews": 8000,
-     "total": 3511936
+     "reviews": 3500,
+     "total": 3141120
     },
     "alts": [
      {
       "name": "JW Marriott Hotel Kuala Lumpur",
-      "price": 3717707,
+      "price": 3735772,
       "rating": 4.5,
       "reviews": 9000
      },
      {
       "name": "The Ritz-Carlton, Kuala Lumpur",
-      "price": 4467628,
+      "price": 4308992,
       "rating": 4.5,
       "reviews": 4200
      }
@@ -638,29 +741,36 @@
    "cheapestDirect": 4574941,
    "directAirline": "Vietjet 07:10",
    "hotel": {
+    "nights": 2,
+    "mid": {
+     "name": "Sleeping Lion Suites",
+     "price": 1166598,
+     "rating": 4.2,
+     "reviews": 2900,
+     "total": 2333196
+    },
     "name": "Grand Millennium Hotel Kuala Lumpur",
-    "price": 3605491,
+    "price": 3618048,
     "rating": 4.5,
     "reviews": 9600,
-    "nights": 2,
-    "total": 7210982,
+    "total": 7236096,
     "cheap": {
-     "name": "Dorsett Kuala Lumpur",
-     "price": 1558428,
+     "name": "Ramada Suites By Wyndham KLCC",
+     "price": 1570560,
      "rating": 4.3,
-     "reviews": 8000,
-     "total": 3116856
+     "reviews": 3500,
+     "total": 3141120
     },
     "alts": [
      {
       "name": "JW Marriott Hotel Kuala Lumpur",
-      "price": 3800167,
+      "price": 3818633,
       "rating": 4.5,
       "reviews": 9000
      },
      {
       "name": "The Ritz-Carlton, Kuala Lumpur",
-      "price": 4467628,
+      "price": 4246784,
       "rating": 4.5,
       "reviews": 4200
      }
@@ -677,29 +787,36 @@
    "cheapestDirect": 4760000,
    "directAirline": "Vietjet 07:25",
    "hotel": {
+    "nights": 2,
+    "mid": {
+     "name": "Sleeping Lion Suites",
+     "price": 1166598,
+     "rating": 4.2,
+     "reviews": 2900,
+     "total": 2333196
+    },
     "name": "Grand Millennium Hotel Kuala Lumpur",
-    "price": 3631163,
+    "price": 3657984,
     "rating": 4.5,
     "reviews": 9600,
-    "nights": 2,
-    "total": 7262326,
+    "total": 7315968,
     "cheap": {
-     "name": "Dorsett Kuala Lumpur",
-     "price": 1652606,
+     "name": "Ramada Suites By Wyndham KLCC",
+     "price": 1570560,
      "rating": 4.3,
-     "reviews": 8000,
-     "total": 3305212
+     "reviews": 3500,
+     "total": 3141120
     },
     "alts": [
      {
       "name": "JW Marriott Hotel Kuala Lumpur",
-      "price": 3800167,
+      "price": 3818633,
       "rating": 4.5,
       "reviews": 9000
      },
      {
       "name": "The Ritz-Carlton, Kuala Lumpur",
-      "price": 4323517,
+      "price": 4189944,
       "rating": 4.5,
       "reviews": 4200
      }
@@ -716,29 +833,36 @@
    "cheapestDirect": 4739751,
    "directAirline": "AirAsia 09:00",
    "hotel": {
+    "nights": 2,
+    "mid": {
+     "name": "Sleeping Lion Suites",
+     "price": 1282828,
+     "rating": 4.2,
+     "reviews": 2900,
+     "total": 2565656
+    },
     "name": "Grand Millennium Hotel Kuala Lumpur",
-    "price": 3631163,
+    "price": 3657984,
     "rating": 4.5,
     "reviews": 9600,
-    "nights": 2,
-    "total": 7262326,
+    "total": 7315968,
     "cheap": {
-     "name": "Dorsett Kuala Lumpur",
-     "price": 1614877,
+     "name": "Ramada Suites By Wyndham KLCC",
+     "price": 1570560,
      "rating": 4.3,
-     "reviews": 8000,
-     "total": 3229754
+     "reviews": 3500,
+     "total": 3141120
     },
     "alts": [
      {
       "name": "JW Marriott Hotel Kuala Lumpur",
-      "price": 3800167,
+      "price": 3818633,
       "rating": 4.5,
       "reviews": 9000
      },
      {
       "name": "The Ritz-Carlton, Kuala Lumpur",
-      "price": 4169487,
+      "price": 4189748,
       "rating": 4.5,
       "reviews": 4200
      }
@@ -755,31 +879,38 @@
    "cheapestDirect": 4760000,
    "directAirline": "Vietjet 07:25",
    "hotel": {
-    "name": "Grand Millennium Hotel Kuala Lumpur",
-    "price": 3539031,
-    "rating": 4.5,
-    "reviews": 9600,
     "nights": 2,
-    "total": 7078062,
+    "mid": {
+     "name": "MOV Hotel",
+     "price": 1159026,
+     "rating": 4.2,
+     "reviews": 1600,
+     "total": 2318052
+    },
+    "name": "The Ritz-Carlton, Kuala Lumpur",
+    "price": 4189748,
+    "rating": 4.5,
+    "reviews": 4200,
+    "total": 8379496,
     "cheap": {
-     "name": "Dorsett Kuala Lumpur",
-     "price": 1652606,
-     "rating": 4.3,
-     "reviews": 8000,
-     "total": 3305212
+     "name": "Hotel Royal Signature",
+     "price": 1934144,
+     "rating": 4.4,
+     "reviews": 1500,
+     "total": 3868288
     },
     "alts": [
      {
-      "name": "JW Marriott Hotel Kuala Lumpur",
-      "price": 3800167,
+      "name": "The Kuala Lumpur Journal Hotel",
+      "price": 2280138,
       "rating": 4.5,
-      "reviews": 9000
+      "reviews": 3700
      },
      {
-      "name": "The Ritz-Carlton, Kuala Lumpur",
-      "price": 4323517,
+      "name": "Pavilion Hotel Kuala Lumpur Managed By Banyan Tree",
+      "price": 4632073,
       "rating": 4.5,
-      "reviews": 4200
+      "reviews": 2000
      }
     ]
    }
@@ -794,29 +925,36 @@
    "cheapestDirect": 4580944,
    "directAirline": "Vietjet 07:25",
    "hotel": {
+    "nights": 2,
+    "mid": {
+     "name": "Sleeping Lion Suites",
+     "price": 1295936,
+     "rating": 4.2,
+     "reviews": 2900,
+     "total": 2591872
+    },
     "name": "Grand Millennium Hotel Kuala Lumpur",
-    "price": 3623279,
+    "price": 3643136,
     "rating": 4.5,
     "reviews": 9600,
-    "nights": 2,
-    "total": 7246558,
+    "total": 7286272,
     "cheap": {
-     "name": "Dorsett Kuala Lumpur",
-     "price": 1721216,
+     "name": "Ramada Suites By Wyndham KLCC",
+     "price": 1566400,
      "rating": 4.3,
-     "reviews": 8000,
-     "total": 3442432
+     "reviews": 3500,
+     "total": 3132800
     },
     "alts": [
      {
       "name": "JW Marriott Hotel Kuala Lumpur",
-      "price": 3799650,
+      "price": 3818633,
       "rating": 4.5,
       "reviews": 9000
      },
      {
       "name": "The Ritz-Carlton, Kuala Lumpur",
-      "price": 4322928,
+      "price": 4189748,
       "rating": 4.5,
       "reviews": 4200
      }
@@ -833,29 +971,36 @@
    "cheapestDirect": 6851348,
    "directAirline": "AirAsia 09:00",
    "hotel": {
+    "nights": 2,
+    "mid": {
+     "name": "Sleeping Lion Suites",
+     "price": 1282828,
+     "rating": 4.2,
+     "reviews": 2900,
+     "total": 2565656
+    },
     "name": "Grand Millennium Hotel Kuala Lumpur",
-    "price": 3275896,
+    "price": 3534483,
     "rating": 4.5,
     "reviews": 9600,
-    "nights": 2,
-    "total": 6551792,
+    "total": 7068966,
     "cheap": {
-     "name": "Hotel Royal Signature",
-     "price": 1928384,
-     "rating": 4.4,
-     "reviews": 1500,
-     "total": 3856768
+     "name": "Ramada Suites By Wyndham KLCC",
+     "price": 1606208,
+     "rating": 4.3,
+     "reviews": 3500,
+     "total": 3212416
     },
     "alts": [
      {
       "name": "JW Marriott Hotel Kuala Lumpur",
-      "price": 3800167,
+      "price": 3818633,
       "rating": 4.5,
       "reviews": 9000
      },
      {
       "name": "The Ritz-Carlton, Kuala Lumpur",
-      "price": 4323517,
+      "price": 4189748,
       "rating": 4.5,
       "reviews": 4200
      }
@@ -872,29 +1017,36 @@
    "cheapestDirect": 4574941,
    "directAirline": "Vietjet 07:25",
    "hotel": {
+    "nights": 2,
+    "mid": {
+     "name": "Sleeping Lion Suites",
+     "price": 1271530,
+     "rating": 4.2,
+     "reviews": 2900,
+     "total": 2543060
+    },
     "name": "Grand Millennium Hotel Kuala Lumpur",
-    "price": 3590711,
+    "price": 3608159,
     "rating": 4.5,
     "reviews": 9600,
-    "nights": 2,
-    "total": 7181422,
+    "total": 7216318,
     "cheap": {
      "name": "Hotel Royal Signature",
-     "price": 1936576,
+     "price": 1934144,
      "rating": 4.4,
      "reviews": 1500,
-     "total": 3873152
+     "total": 3868288
     },
     "alts": [
      {
       "name": "JW Marriott Hotel Kuala Lumpur",
-      "price": 3800167,
+      "price": 3818633,
       "rating": 4.5,
       "reviews": 9000
      },
      {
       "name": "The Ritz-Carlton, Kuala Lumpur",
-      "price": 4375552,
+      "price": 4344526,
       "rating": 4.5,
       "reviews": 4200
      }
@@ -911,29 +1063,36 @@
    "cheapestDirect": 5580000,
    "directAirline": "Vietjet 07:25",
    "hotel": {
+    "nights": 2,
+    "mid": {
+     "name": "Sleeping Lion Suites",
+     "price": 1282828,
+     "rating": 4.2,
+     "reviews": 2900,
+     "total": 2565656
+    },
     "name": "Grand Millennium Hotel Kuala Lumpur",
-    "price": 3565039,
+    "price": 3577472,
     "rating": 4.5,
     "reviews": 9600,
-    "nights": 2,
-    "total": 7130078,
+    "total": 7154944,
     "cheap": {
-     "name": "Hotel Royal Signature",
-     "price": 1928384,
-     "rating": 4.4,
-     "reviews": 1500,
-     "total": 3856768
+     "name": "Ramada Suites By Wyndham KLCC",
+     "price": 1606080,
+     "rating": 4.3,
+     "reviews": 3500,
+     "total": 3212160
     },
     "alts": [
      {
       "name": "JW Marriott Hotel Kuala Lumpur",
-      "price": 3800167,
+      "price": 3818633,
       "rating": 4.5,
       "reviews": 9000
      },
      {
       "name": "The Ritz-Carlton, Kuala Lumpur",
-      "price": 4169487,
+      "price": 4344526,
       "rating": 4.5,
       "reviews": 4200
      }
@@ -950,29 +1109,36 @@
    "cheapestDirect": 4760000,
    "directAirline": "Vietjet 07:25",
    "hotel": {
+    "nights": 2,
+    "mid": {
+     "name": "Sleeping Lion Suites",
+     "price": 1282828,
+     "rating": 4.2,
+     "reviews": 2900,
+     "total": 2565656
+    },
     "name": "Grand Millennium Hotel Kuala Lumpur",
-    "price": 3557649,
+    "price": 3574937,
     "rating": 4.5,
     "reviews": 9600,
-    "nights": 2,
-    "total": 7115298,
+    "total": 7149874,
     "cheap": {
      "name": "Ramada Suites By Wyndham KLCC",
-     "price": 1765989,
+     "price": 1962864,
      "rating": 4.3,
      "reviews": 3500,
-     "total": 3531978
+     "total": 3925728
     },
     "alts": [
      {
       "name": "JW Marriott Hotel Kuala Lumpur",
-      "price": 3862401,
+      "price": 3867392,
       "rating": 4.5,
       "reviews": 9000
      },
      {
       "name": "The Ritz-Carlton, Kuala Lumpur",
-      "price": 4169682,
+      "price": 4189748,
       "rating": 4.5,
       "reviews": 4200
      }
@@ -989,29 +1155,36 @@
    "cheapestDirect": 4760000,
    "directAirline": "Vietjet 07:25",
    "hotel": {
+    "nights": 2,
+    "mid": {
+     "name": "MOV Hotel",
+     "price": 1159026,
+     "rating": 4.2,
+     "reviews": 1600,
+     "total": 2318052
+    },
     "name": "Grand Millennium Hotel Kuala Lumpur",
-    "price": 3531977,
+    "price": 3586076,
     "rating": 4.5,
     "reviews": 9600,
-    "nights": 2,
-    "total": 7063954,
+    "total": 7172152,
     "cheap": {
      "name": "Ramada Suites By Wyndham KLCC",
-     "price": 1765989,
+     "price": 1962864,
      "rating": 4.3,
      "reviews": 3500,
-     "total": 3531978
+     "total": 3925728
     },
     "alts": [
      {
       "name": "JW Marriott Hotel Kuala Lumpur",
-      "price": 3800167,
+      "price": 3866112,
       "rating": 4.5,
       "reviews": 9000
      },
      {
       "name": "The Ritz-Carlton, Kuala Lumpur",
-      "price": 4169487,
+      "price": 4189748,
       "rating": 4.5,
       "reviews": 4200
      }
@@ -1028,29 +1201,36 @@
    "cheapestDirect": 5570626,
    "directAirline": "AirAsia 09:00",
    "hotel": {
+    "nights": 2,
+    "mid": {
+     "name": "Sleeping Lion Suites",
+     "price": 1282828,
+     "rating": 4.2,
+     "reviews": 2900,
+     "total": 2565656
+    },
     "name": "Grand Millennium Hotel Kuala Lumpur",
-    "price": 3513696,
+    "price": 3530770,
     "rating": 4.5,
     "reviews": 9600,
-    "nights": 2,
-    "total": 7027392,
+    "total": 7061540,
     "cheap": {
-     "name": "The Robertson Residences Bukit Bintang",
-     "price": 1403600,
-     "rating": 4.4,
-     "reviews": 3300,
-     "total": 2807200
+     "name": "Ramada Suites By Wyndham KLCC",
+     "price": 1996044,
+     "rating": 4.3,
+     "reviews": 3500,
+     "total": 3992088
     },
     "alts": [
      {
       "name": "JW Marriott Hotel Kuala Lumpur",
-      "price": 3862401,
+      "price": 3872768,
       "rating": 4.5,
       "reviews": 9000
      },
      {
       "name": "The Ritz-Carlton, Kuala Lumpur",
-      "price": 4169682,
+      "price": 4189748,
       "rating": 4.5,
       "reviews": 4200
      }
@@ -1067,29 +1247,36 @@
    "cheapestDirect": 4540454,
    "directAirline": "AirAsia 09:00",
    "hotel": {
+    "nights": 2,
+    "mid": {
+     "name": "Sleeping Lion Suites",
+     "price": 1282828,
+     "rating": 4.2,
+     "reviews": 2900,
+     "total": 2565656
+    },
     "name": "Grand Millennium Hotel Kuala Lumpur",
-    "price": 3531977,
+    "price": 3549140,
     "rating": 4.5,
     "reviews": 9600,
-    "nights": 2,
-    "total": 7063954,
+    "total": 7098280,
     "cheap": {
      "name": "Ramada Suites By Wyndham KLCC",
-     "price": 1953371,
+     "price": 1962864,
      "rating": 4.3,
      "reviews": 3500,
-     "total": 3906742
+     "total": 3925728
     },
     "alts": [
      {
       "name": "JW Marriott Hotel Kuala Lumpur",
-      "price": 3862401,
+      "price": 3881170,
       "rating": 4.5,
       "reviews": 9000
      },
      {
       "name": "The Ritz-Carlton, Kuala Lumpur",
-      "price": 4169682,
+      "price": 4189748,
       "rating": 4.5,
       "reviews": 4200
      }
@@ -1106,29 +1293,36 @@
    "cheapestDirect": 4733179,
    "directAirline": "AirAsia 09:00",
    "hotel": {
+    "nights": 2,
+    "mid": {
+     "name": "The Robertson Residences Bukit Bintang",
+     "price": 1256100,
+     "rating": 4.4,
+     "reviews": 3300,
+     "total": 2512200
+    },
     "name": "Grand Millennium Hotel Kuala Lumpur",
-    "price": 3645749,
+    "price": 3663465,
     "rating": 4.5,
     "reviews": 9600,
-    "nights": 2,
-    "total": 7291498,
+    "total": 7326930,
     "cheap": {
-     "name": "Ramada Suites By Wyndham KLCC",
-     "price": 1765989,
-     "rating": 4.3,
-     "reviews": 3500,
-     "total": 3531978
+     "name": "The Robertson Residences Bukit Bintang",
+     "price": 1256100,
+     "rating": 4.4,
+     "reviews": 3300,
+     "total": 2512200
     },
     "alts": [
      {
       "name": "JW Marriott Hotel Kuala Lumpur",
-      "price": 3862401,
+      "price": 3871104,
       "rating": 4.5,
       "reviews": 9000
      },
      {
       "name": "The Ritz-Carlton, Kuala Lumpur",
-      "price": 4169487,
+      "price": 4189748,
       "rating": 4.5,
       "reviews": 4200
      }
@@ -1140,29 +1334,36 @@
    "depart": "2027-06-25",
    "return": "2027-06-27",
    "hotel": {
+    "nights": 2,
+    "mid": {
+     "name": "MOV Hotel",
+     "price": 1250729,
+     "rating": 4.2,
+     "reviews": 1600,
+     "total": 2501458
+    },
     "name": "Grand Millennium Hotel Kuala Lumpur",
-    "price": 3652642,
+    "price": 3670891,
     "rating": 4.5,
     "reviews": 9600,
-    "nights": 2,
-    "total": 7305284,
+    "total": 7341782,
     "cheap": {
      "name": "Ramada Suites By Wyndham KLCC",
-     "price": 1765989,
+     "price": 1962864,
      "rating": 4.3,
      "reviews": 3500,
-     "total": 3531978
+     "total": 3925728
     },
     "alts": [
      {
       "name": "JW Marriott Hotel Kuala Lumpur",
-      "price": 3861875,
+      "price": 3866112,
       "rating": 4.5,
       "reviews": 9000
      },
      {
       "name": "The Ritz-Carlton, Kuala Lumpur",
-      "price": 4169682,
+      "price": 4189748,
       "rating": 4.5,
       "reviews": 4200
      }
@@ -1174,29 +1375,30 @@
    "depart": "2027-07-02",
    "return": "2027-07-04",
    "hotel": {
+    "nights": 2,
+    "mid": null,
     "name": "Grand Millennium Hotel Kuala Lumpur",
-    "price": 3737035,
+    "price": 3755706,
     "rating": 4.5,
     "reviews": 9600,
-    "nights": 2,
-    "total": 7474070,
+    "total": 7511412,
     "cheap": {
      "name": "Ramada Suites By Wyndham KLCC",
-     "price": 1953371,
+     "price": 1962864,
      "rating": 4.3,
      "reviews": 3500,
-     "total": 3906742
+     "total": 3925728
     },
     "alts": [
      {
       "name": "JW Marriott Hotel Kuala Lumpur",
-      "price": 3861875,
+      "price": 3871104,
       "rating": 4.5,
       "reviews": 9000
      },
      {
       "name": "The Ritz-Carlton, Kuala Lumpur",
-      "price": 4196522,
+      "price": 4189748,
       "rating": 4.5,
       "reviews": 4200
      }
@@ -1213,29 +1415,30 @@
    "cheapestDirect": 4540454,
    "directAirline": "AirAsia 09:00",
    "hotel": {
+    "nights": 2,
+    "mid": null,
     "name": "Grand Millennium Hotel Kuala Lumpur",
-    "price": 3737544,
+    "price": 3755706,
     "rating": 4.5,
     "reviews": 9600,
-    "nights": 2,
-    "total": 7475088,
+    "total": 7511412,
     "cheap": {
      "name": "Ramada Suites By Wyndham KLCC",
-     "price": 1765989,
+     "price": 1962864,
      "rating": 4.3,
      "reviews": 3500,
-     "total": 3531978
+     "total": 3925728
     },
     "alts": [
      {
       "name": "JW Marriott Hotel Kuala Lumpur",
-      "price": 3862401,
+      "price": 3867392,
       "rating": 4.5,
       "reviews": 9000
      },
      {
       "name": "The Ritz-Carlton, Kuala Lumpur",
-      "price": 4169682,
+      "price": 4189748,
       "rating": 4.5,
       "reviews": 4200
      }
@@ -1252,29 +1455,30 @@
    "cheapestDirect": 4540454,
    "directAirline": "AirAsia 09:00",
    "hotel": {
+    "nights": 2,
+    "mid": null,
     "name": "Grand Millennium Hotel Kuala Lumpur",
-    "price": 3737035,
+    "price": 3755706,
     "rating": 4.5,
     "reviews": 9600,
-    "nights": 2,
-    "total": 7474070,
+    "total": 7511412,
     "cheap": {
      "name": "Ramada Suites By Wyndham KLCC",
-     "price": 1765989,
+     "price": 1996154,
      "rating": 4.3,
      "reviews": 3500,
-     "total": 3531978
+     "total": 3992308
     },
     "alts": [
      {
       "name": "JW Marriott Hotel Kuala Lumpur",
-      "price": 3861875,
+      "price": 3866368,
       "rating": 4.5,
       "reviews": 9000
      },
      {
       "name": "The Ritz-Carlton, Kuala Lumpur",
-      "price": 4169682,
+      "price": 4189748,
       "rating": 4.5,
       "reviews": 4200
      }
@@ -1291,29 +1495,30 @@
    "cheapestDirect": 4953901,
    "directAirline": "AirAsia 09:00",
    "hotel": {
+    "nights": 2,
+    "mid": null,
     "name": "Grand Millennium Hotel Kuala Lumpur",
-    "price": 3737544,
+    "price": 3755706,
     "rating": 4.5,
     "reviews": 9600,
-    "nights": 2,
-    "total": 7475088,
+    "total": 7511412,
     "cheap": {
      "name": "Dorsett Kuala Lumpur",
-     "price": 2405249,
+     "price": 2267375,
      "rating": 4.3,
      "reviews": 8000,
-     "total": 4810498
+     "total": 4534750
     },
     "alts": [
      {
       "name": "JW Marriott Hotel Kuala Lumpur",
-      "price": 3862401,
+      "price": 3866112,
       "rating": 4.5,
       "reviews": 9000
      },
      {
       "name": "The Ritz-Carlton, Kuala Lumpur",
-      "price": 4169682,
+      "price": 4189748,
       "rating": 4.5,
       "reviews": 4200
      }
@@ -1325,29 +1530,30 @@
    "depart": "2027-07-30",
    "return": "2027-08-01",
    "hotel": {
+    "nights": 2,
+    "mid": null,
     "name": "Grand Millennium Hotel Kuala Lumpur",
-    "price": 3737544,
+    "price": 3755706,
     "rating": 4.5,
     "reviews": 9600,
-    "nights": 2,
-    "total": 7475088,
+    "total": 7511412,
     "cheap": {
      "name": "Dorsett Kuala Lumpur",
-     "price": 2405249,
+     "price": 2416937,
      "rating": 4.3,
      "reviews": 8000,
-     "total": 4810498
+     "total": 4833874
     },
     "alts": [
      {
       "name": "JW Marriott Hotel Kuala Lumpur",
-      "price": 3862401,
+      "price": 3866112,
       "rating": 4.5,
       "reviews": 9000
      },
      {
       "name": "The Ritz-Carlton, Kuala Lumpur",
-      "price": 4169487,
+      "price": 4189748,
       "rating": 4.5,
       "reviews": 4200
      }
@@ -1364,29 +1570,36 @@
    "cheapestDirect": 4760000,
    "directAirline": "Vietjet 07:25",
    "hotel": {
+    "nights": 2,
+    "mid": {
+     "name": "Sleeping Lion Suites",
+     "price": 1217458,
+     "rating": 4.2,
+     "reviews": 2900,
+     "total": 2434916
+    },
     "name": "Grand Millennium Hotel Kuala Lumpur",
-    "price": 3741239,
+    "price": 3759419,
     "rating": 4.5,
     "reviews": 9600,
-    "nights": 2,
-    "total": 7482478,
+    "total": 7518838,
     "cheap": {
      "name": "Ramada Suites By Wyndham KLCC",
-     "price": 1953105,
+     "price": 1962864,
      "rating": 4.3,
      "reviews": 3500,
-     "total": 3906210
+     "total": 3925728
     },
     "alts": [
      {
       "name": "JW Marriott Hotel Kuala Lumpur",
-      "price": 3862401,
+      "price": 3881170,
       "rating": 4.5,
       "reviews": 9000
      },
      {
       "name": "The Ritz-Carlton, Kuala Lumpur",
-      "price": 4169682,
+      "price": 4189748,
       "rating": 4.5,
       "reviews": 4200
      }
@@ -1398,29 +1611,36 @@
    "depart": "2027-08-13",
    "return": "2027-08-15",
    "hotel": {
+    "nights": 2,
+    "mid": {
+     "name": "Sleeping Lion Suites",
+     "price": 1251120,
+     "rating": 4.2,
+     "reviews": 2900,
+     "total": 2502240
+    },
     "name": "Grand Millennium Hotel Kuala Lumpur",
-    "price": 3741239,
+    "price": 3759419,
     "rating": 4.5,
     "reviews": 9600,
-    "nights": 2,
-    "total": 7482478,
+    "total": 7518838,
     "cheap": {
      "name": "Ramada Suites By Wyndham KLCC",
-     "price": 1953371,
+     "price": 2374784,
      "rating": 4.3,
      "reviews": 3500,
-     "total": 3906742
+     "total": 4749568
     },
     "alts": [
      {
       "name": "JW Marriott Hotel Kuala Lumpur",
-      "price": 3862401,
+      "price": 3866752,
       "rating": 4.5,
       "reviews": 9000
      },
      {
       "name": "The Ritz-Carlton, Kuala Lumpur",
-      "price": 4169114,
+      "price": 4189748,
       "rating": 4.5,
       "reviews": 4200
      }
@@ -1432,29 +1652,36 @@
    "depart": "2027-08-20",
    "return": "2027-08-22",
    "hotel": {
+    "nights": 2,
+    "mid": {
+     "name": "Sleeping Lion Suites",
+     "price": 1217458,
+     "rating": 4.2,
+     "reviews": 2900,
+     "total": 2434916
+    },
     "name": "Grand Millennium Hotel Kuala Lumpur",
-    "price": 3737035,
+    "price": 3755706,
     "rating": 4.5,
     "reviews": 9600,
-    "nights": 2,
-    "total": 7474070,
+    "total": 7511412,
     "cheap": {
      "name": "Ramada Suites By Wyndham KLCC",
-     "price": 1953105,
+     "price": 1962864,
      "rating": 4.3,
      "reviews": 3500,
-     "total": 3906210
+     "total": 3925728
     },
     "alts": [
      {
       "name": "JW Marriott Hotel Kuala Lumpur",
-      "price": 3861875,
+      "price": 3866112,
       "rating": 4.5,
       "reviews": 9000
      },
      {
       "name": "The Ritz-Carlton, Kuala Lumpur",
-      "price": 4169682,
+      "price": 4189748,
       "rating": 4.5,
       "reviews": 4200
      }
@@ -1471,29 +1698,36 @@
    "cheapestDirect": 4760000,
    "directAirline": "Vietjet 07:25",
    "hotel": {
+    "nights": 2,
+    "mid": {
+     "name": "Sleeping Lion Suites",
+     "price": 1282828,
+     "rating": 4.2,
+     "reviews": 2900,
+     "total": 2565656
+    },
     "name": "Grand Millennium Hotel Kuala Lumpur",
-    "price": 3740730,
+    "price": 3759419,
     "rating": 4.5,
     "reviews": 9600,
-    "nights": 2,
-    "total": 7481460,
+    "total": 7518838,
     "cheap": {
      "name": "Ramada Suites By Wyndham KLCC",
-     "price": 1953105,
+     "price": 1962864,
      "rating": 4.3,
      "reviews": 3500,
-     "total": 3906210
+     "total": 3925728
     },
     "alts": [
      {
       "name": "JW Marriott Hotel Kuala Lumpur",
-      "price": 3861875,
+      "price": 3871104,
       "rating": 4.5,
       "reviews": 9000
      },
      {
       "name": "The Ritz-Carlton, Kuala Lumpur",
-      "price": 4169487,
+      "price": 4189748,
       "rating": 4.5,
       "reviews": 4200
      }
@@ -1505,29 +1739,36 @@
    "depart": "2027-09-02",
    "return": "2027-09-05",
    "hotel": {
+    "nights": 3,
+    "mid": {
+     "name": "Sleeping Lion Suites",
+     "price": 1073087,
+     "rating": 4.2,
+     "reviews": 2900,
+     "total": 3219261
+    },
     "name": "Grand Millennium Hotel Kuala Lumpur",
-    "price": 3694758,
+    "price": 3712712,
     "rating": 4.5,
     "reviews": 9600,
-    "nights": 3,
-    "total": 11084274,
+    "total": 11138136,
     "cheap": {
      "name": "Ramada Suites By Wyndham KLCC",
-     "price": 1953106,
+     "price": 1962864,
      "rating": 4.3,
      "reviews": 3500,
-     "total": 5859318
+     "total": 5888592
     },
     "alts": [
      {
       "name": "JW Marriott Hotel Kuala Lumpur",
-      "price": 3807428,
+      "price": 3825929,
       "rating": 4.5,
       "reviews": 9000
      },
      {
       "name": "The Ritz-Carlton, Kuala Lumpur",
-      "price": 4168984,
+      "price": 4189813,
       "rating": 4.5,
       "reviews": 4200
      }
@@ -1539,29 +1780,36 @@
    "depart": "2027-09-03",
    "return": "2027-09-05",
    "hotel": {
+    "nights": 2,
+    "mid": {
+     "name": "Sleeping Lion Suites",
+     "price": 1073087,
+     "rating": 4.2,
+     "reviews": 2900,
+     "total": 2146174
+    },
     "name": "Grand Millennium Hotel Kuala Lumpur",
-    "price": 3733535,
+    "price": 3752188,
     "rating": 4.5,
     "reviews": 9600,
-    "nights": 2,
-    "total": 7467070,
+    "total": 7504376,
     "cheap": {
-     "name": "Ramada Suites By Wyndham KLCC",
-     "price": 1953371,
+     "name": "Dorsett Kuala Lumpur",
+     "price": 2381760,
      "rating": 4.3,
-     "reviews": 3500,
-     "total": 3906742
+     "reviews": 8000,
+     "total": 4763520
     },
     "alts": [
      {
       "name": "JW Marriott Hotel Kuala Lumpur",
-      "price": 3861875,
+      "price": 3872768,
       "rating": 4.5,
       "reviews": 9000
      },
      {
       "name": "The Ritz-Carlton, Kuala Lumpur",
-      "price": 4169487,
+      "price": 4189748,
       "rating": 4.5,
       "reviews": 4200
      }
@@ -1578,29 +1826,36 @@
    "cheapestDirect": 4760000,
    "directAirline": "Vietjet 07:25",
    "hotel": {
+    "nights": 2,
+    "mid": {
+     "name": "Sleeping Lion Suites",
+     "price": 1073087,
+     "rating": 4.2,
+     "reviews": 2900,
+     "total": 2146174
+    },
     "name": "Grand Millennium Hotel Kuala Lumpur",
-    "price": 3733535,
+    "price": 3752188,
     "rating": 4.5,
     "reviews": 9600,
-    "nights": 2,
-    "total": 7467070,
+    "total": 7504376,
     "cheap": {
      "name": "Dorsett Kuala Lumpur",
-     "price": 2369920,
+     "price": 2381760,
      "rating": 4.3,
      "reviews": 8000,
-     "total": 4739840
+     "total": 4763520
     },
     "alts": [
      {
       "name": "JW Marriott Hotel Kuala Lumpur",
-      "price": 3861875,
+      "price": 3871104,
       "rating": 4.5,
       "reviews": 9000
      },
      {
       "name": "The Ritz-Carlton, Kuala Lumpur",
-      "price": 4169114,
+      "price": 4189748,
       "rating": 4.5,
       "reviews": 4200
      }
@@ -1612,29 +1867,36 @@
    "depart": "2027-09-17",
    "return": "2027-09-19",
    "hotel": {
+    "nights": 2,
+    "mid": {
+     "name": "Sleeping Lion Suites",
+     "price": 1073087,
+     "rating": 4.2,
+     "reviews": 2900,
+     "total": 2146174
+    },
     "name": "Grand Millennium Hotel Kuala Lumpur",
-    "price": 3734044,
+    "price": 3752188,
     "rating": 4.5,
     "reviews": 9600,
-    "nights": 2,
-    "total": 7468088,
+    "total": 7504376,
     "cheap": {
-     "name": "Dorsett Kuala Lumpur",
-     "price": 2362658,
-     "rating": 4.3,
-     "reviews": 8000,
-     "total": 4725316
+     "name": "The Robertson Residences Bukit Bintang",
+     "price": 1719212,
+     "rating": 4.4,
+     "reviews": 3300,
+     "total": 3438424
     },
     "alts": [
      {
       "name": "JW Marriott Hotel Kuala Lumpur",
-      "price": 3862401,
+      "price": 3874688,
       "rating": 4.5,
       "reviews": 9000
      },
      {
       "name": "The Ritz-Carlton, Kuala Lumpur",
-      "price": 4168920,
+      "price": 4189748,
       "rating": 4.5,
       "reviews": 4200
      }
@@ -1651,29 +1913,36 @@
    "cheapestDirect": 5367348,
    "directAirline": "AirAsia 09:00",
    "hotel": {
+    "nights": 2,
+    "mid": {
+     "name": "Sleeping Lion Suites",
+     "price": 1073087,
+     "rating": 4.2,
+     "reviews": 2900,
+     "total": 2146174
+    },
     "name": "Grand Millennium Hotel Kuala Lumpur",
-    "price": 3733535,
+    "price": 3752188,
     "rating": 4.5,
     "reviews": 9600,
-    "nights": 2,
-    "total": 7467070,
+    "total": 7504376,
     "cheap": {
      "name": "Dorsett Kuala Lumpur",
-     "price": 2362336,
+     "price": 2374139,
      "rating": 4.3,
      "reviews": 8000,
-     "total": 4724672
+     "total": 4748278
     },
     "alts": [
      {
       "name": "JW Marriott Hotel Kuala Lumpur",
-      "price": 3861875,
+      "price": 3876736,
       "rating": 4.5,
       "reviews": 9000
      },
      {
       "name": "The Ritz-Carlton, Kuala Lumpur",
-      "price": 4169114,
+      "price": 4189748,
       "rating": 4.5,
       "reviews": 4200
      }
@@ -1690,29 +1959,36 @@
    "cheapestDirect": 5367348,
    "directAirline": "AirAsia 09:00",
    "hotel": {
+    "nights": 2,
+    "mid": {
+     "name": "Sleeping Lion Suites",
+     "price": 1073087,
+     "rating": 4.2,
+     "reviews": 2900,
+     "total": 2146174
+    },
     "name": "Grand Millennium Hotel Kuala Lumpur",
-    "price": 3645749,
+    "price": 3663465,
     "rating": 4.5,
     "reviews": 9600,
-    "nights": 2,
-    "total": 7291498,
+    "total": 7326930,
     "cheap": {
-     "name": "Ramada Suites By Wyndham KLCC",
-     "price": 2422664,
-     "rating": 4.3,
-     "reviews": 3500,
-     "total": 4845328
+     "name": "Hotel Royal Signature",
+     "price": 2243988,
+     "rating": 4.4,
+     "reviews": 1500,
+     "total": 4487976
     },
     "alts": [
      {
       "name": "JW Marriott Hotel Kuala Lumpur",
-      "price": 3862401,
+      "price": 3874688,
       "rating": 4.5,
       "reviews": 9000
      },
      {
       "name": "The Ritz-Carlton, Kuala Lumpur",
-      "price": 4169114,
+      "price": 4189748,
       "rating": 4.5,
       "reviews": 4200
      }
@@ -1729,29 +2005,36 @@
    "cheapestDirect": 5367348,
    "directAirline": "AirAsia 09:00",
    "hotel": {
+    "nights": 2,
+    "mid": {
+     "name": "Sleeping Lion Suites",
+     "price": 1073087,
+     "rating": 4.2,
+     "reviews": 2900,
+     "total": 2146174
+    },
     "name": "Grand Millennium Hotel Kuala Lumpur",
-    "price": 3645749,
+    "price": 3663465,
     "rating": 4.5,
     "reviews": 9600,
-    "nights": 2,
-    "total": 7291498,
+    "total": 7326930,
     "cheap": {
      "name": "Dorsett Kuala Lumpur",
-     "price": 2367714,
+     "price": 2238513,
      "rating": 4.3,
      "reviews": 8000,
-     "total": 4735428
+     "total": 4477026
     },
     "alts": [
      {
       "name": "JW Marriott Hotel Kuala Lumpur",
-      "price": 3862401,
+      "price": 3869312,
       "rating": 4.5,
       "reviews": 9000
      },
      {
       "name": "The Ritz-Carlton, Kuala Lumpur",
-      "price": 4428288,
+      "price": 4189748,
       "rating": 4.5,
       "reviews": 4200
      }
@@ -1761,7 +2044,37 @@
   {
    "name": "Cuối tuần",
    "depart": "2027-10-15",
-   "return": "2027-10-17"
+   "return": "2027-10-17",
+   "hotel": {
+    "nights": 2,
+    "mid": null,
+    "name": "Grand Millennium Hotel Kuala Lumpur",
+    "price": 4578816,
+    "rating": 4.5,
+    "reviews": 9600,
+    "total": 9157632,
+    "cheap": {
+     "name": "Ramada Suites By Wyndham KLCC",
+     "price": 2415324,
+     "rating": 4.3,
+     "reviews": 3500,
+     "total": 4830648
+    },
+    "alts": [
+     {
+      "name": "The Kuala Lumpur Journal Hotel",
+      "price": 3059668,
+      "rating": 4.5,
+      "reviews": 3700
+     },
+     {
+      "name": "Pavilion Hotel Kuala Lumpur Managed By Banyan Tree",
+      "price": 6909670,
+      "rating": 4.5,
+      "reviews": 2000
+     }
+    ]
+   }
   }
  ]
 }

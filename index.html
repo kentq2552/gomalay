@@ -125,13 +125,13 @@ td.r,th.r{text-align:right}
   <section aria-labelledby="h-scan" id="scan-sec" hidden>
     <div class="sec-head"><h2 id="h-scan">So sánh các ngày đi khác (3N2Đ, thứ 6 → CN)</h2><span class="muted" style="font-size:13px" id="scan-date"></span></div>
     <div class="links" id="scan-filter" role="group" aria-label="Sắp xếp">
-      <a href="#" data-sort="date" aria-pressed="true">Theo ngày</a><a href="#" data-sort="price" aria-pressed="false">Vé rẻ nhất trước</a><a href="#" data-sort="total" aria-pressed="false">Vé + khách sạn rẻ nhất</a>
+      <a href="#" data-sort="date" aria-pressed="true">Theo ngày</a><a href="#" data-sort="price" aria-pressed="false">Vé rẻ nhất trước</a><a href="#" data-sort="total" aria-pressed="false">Vé + khách sạn rẻ nhất</a><a href="#" data-sort="mid" aria-pressed="false">Vé + KS tầm 1 triệu rẻ nhất</a>
     </div>
     <div class="tbl"><table>
-      <thead><tr><th>Dịp</th><th>Đi → về</th><th class="r">Khứ hồi rẻ nhất</th><th style="width:12%"></th><th class="r">So với 30/4</th><th>Khách sạn view đẹp</th><th class="r">Vé + KS</th></tr></thead>
+      <thead><tr><th>Dịp</th><th>Đi → về</th><th class="r">Khứ hồi rẻ nhất</th><th style="width:12%"></th><th class="r">So với 30/4</th><th>Khách sạn view đẹp</th><th class="r">Vé + KS</th><th>View đẹp tầm 1 triệu</th></tr></thead>
       <tbody id="scan-body"></tbody>
     </table></div>
-    <p class="muted" style="font-size:13px">Giá vé là giá "từ" trên Google Flights tại thời điểm rà, chưa gồm hành lý ký gửi. Khách sạn: tìm trên Google Hotels theo "view KLCC, hồ bơi tầng thượng, gần Bukit Bintang", chỉ giữ chỗ từ <span id="scan-hmin"></span>, "Ổn nhất" là chỗ điểm cao nhất (hoà điểm thì nhiều đánh giá hơn), "Đáng tiền" là chỗ rẻ nhất trong nhóm đạt chuẩn. Giá khách sạn là giá mỗi đêm. "Vé + KS" = vé khứ hồi + số đêm × giá/đêm cho 1 người. Chạy lại bằng <code>scan_dates.py</code> trên máy.</p>
+    <p class="muted" style="font-size:13px">Giá vé là giá "từ" trên Google Flights tại thời điểm rà, chưa gồm hành lý ký gửi. Khách sạn: tìm trên Google Hotels theo "view KLCC, hồ bơi tầng thượng, gần Bukit Bintang", chỉ giữ chỗ từ <span id="scan-hmin"></span>, "Ổn nhất" là chỗ điểm cao nhất (hoà điểm thì nhiều đánh giá hơn), "Đáng tiền" là chỗ rẻ nhất trong nhóm đạt chuẩn. Cột "View đẹp tầm 1 triệu" nới tiêu chí: <span id="scan-mid"></span>, cũng chọn chỗ điểm cao nhất. Giá khách sạn là giá mỗi đêm. "Vé + KS" = vé khứ hồi + số đêm × giá/đêm cho 1 người. Chạy lại bằng <code>scan_dates.py</code> trên máy.</p>
   </section>
 
   <section aria-labelledby="h-air">
@@ -390,8 +390,9 @@ td.r,th.r{text-align:right}
     const base = ok.find(r=>r.depart==="2027-04-30");
     const max = Math.max(...ok.map(r=>r.cheapest)), min = Math.min(...ok.map(r=>r.cheapest));
     const top3 = ok.slice().sort((a,b)=>a.cheapest-b.cheapest).slice(0,3).map(r=>r.depart);
-    const tot = r => r.cheapest && r.hotel ? r.cheapest + r.hotel.total : null;
-    const key = { price: r=>r.cheapest||9e12, total: r=>tot(r)||9e12 }[scanSort];
+    const tot = r => r.cheapest && r.hotel && r.hotel.total ? r.cheapest + r.hotel.total : null;
+    const totMid = r => r.cheapest && r.hotel && r.hotel.mid ? r.cheapest + r.hotel.mid.total : null;
+    const key = { price: r=>r.cheapest||9e12, total: r=>tot(r)||9e12, mid: r=>totMid(r)||9e12 }[scanSort];
     const rows = scanRows.slice().sort((a,b)=> key ? key(a)-key(b) : (a.depart<b.depart?-1:1));
     const rv = n => n>=1000 ? (n/1000).toFixed(1).replace(".",",")+" N" : String(n);
     const hcell = (lbl,x) => `<div style="margin-bottom:4px"><span class="muted" style="font-size:12px">${lbl}:</span> ${esc(x.name)}<div class="muted" style="font-size:12px">★ ${String(x.rating).replace(".",",")} · ${rv(x.reviews)} đánh giá · <span class="num">${fmt(x.price)} ₫</span>/đêm</div></div>`;
@@ -406,8 +407,9 @@ td.r,th.r{text-align:right}
         <td class="r num">${r.cheapest?fmt(r.cheapest)+" ₫":"—"}<div class="muted" style="font-size:12px">${esc(r.airline||"")}</div></td>
         <td style="vertical-align:middle">${bar}</td>
         <td class="r num ${diff==null?"":diff<0?"delta down":"delta up"}">${diff==null?(r===base?"mốc":"—"):(diff<0?"−":"+")+fmt(Math.abs(diff))+" ₫"}</td>
-        <td>${h?hcell("Ổn nhất",h)+(h.cheap?hcell("Đáng tiền",h.cheap):""):'<span class="muted">—</span>'}</td>
-        <td class="r num">${tot(r)?fmt(tot(r))+" ₫":"—"}${h?`<div class="muted" style="font-size:12px">${h.nights} đêm</div>`:""}${h&&h.cheap&&r.cheapest?`<div style="margin-top:6px">${fmt(r.cheapest+h.cheap.total)} ₫</div><div class="muted" style="font-size:12px">nếu ở chỗ đáng tiền</div>`:""}</td></tr>`;
+        <td>${h&&h.name?hcell("Ổn nhất",h)+(h.cheap?hcell("Đáng tiền",h.cheap):""):'<span class="muted">—</span>'}</td>
+        <td class="r num">${tot(r)?fmt(tot(r))+" ₫":"—"}${h&&h.name?`<div class="muted" style="font-size:12px">${h.nights} đêm</div>`:""}${h&&h.cheap&&r.cheapest?`<div style="margin-top:6px">${fmt(r.cheapest+h.cheap.total)} ₫</div><div class="muted" style="font-size:12px">nếu ở chỗ đáng tiền</div>`:""}</td>
+        <td>${h&&h.mid?hcell("",h.mid).replace('<span class="muted" style="font-size:12px">:</span> ',"")+`<div style="font-size:13px">Vé + KS: <strong class="num">${totMid(r)?fmt(totMid(r))+" ₫":"—"}</strong></div>`:'<span class="muted">—</span>'}</td></tr>`;
     }).join("");
   }
   getScan().then(d=>{
@@ -415,6 +417,7 @@ td.r,th.r{text-align:right}
     if(!scanRows.length) return;
     $("scan-date").textContent = "Rà lúc " + d.scannedAt.replace("T"," ").slice(0,16);
     $("scan-hmin").textContent = `${String(d.hotelMinRating||4.3).replace(".",",")}★ và ${fmt(d.hotelMinReviews||1500)} lượt đánh giá trở lên`;
+    $("scan-mid").textContent = `từ ${String(d.midMinRating||4.1).replace(".",",")}★, từ ${fmt(d.midMinReviews||1000)} đánh giá, giá không quá ${fmt(d.midMaxPrice||1300000)} ₫/đêm`;
     $("scan-sec").hidden = false;
     renderScan();
   }).catch(()=>{});
