@@ -253,5 +253,132 @@
   "date": "2026-11-18",
   "fetchedAt": "2026-11-18T12:57+07:00",
   "hotelsFrom": "2026-11-17"
+ },
+ {
+  "cheapest": 6851348,
+  "cheapestAirline": "AirAsia 09:00 / về 12:00",
+  "cheapestPlatform": "AirAsia (hãng)",
+  "platformFlight": "AirAsia: đi 09:00→13:15, về 12:00→14:20",
+  "airlines": [
+   {
+    "airline": "AirAsia",
+    "out": "09:00 → 13:15",
+    "back": "12:00 → 14:20",
+    "price": 6851348,
+    "note": "Bay thẳng"
+   },
+   {
+    "airline": "Vietjet",
+    "out": "07:25 → 11:30",
+    "back": "theo lựa chọn",
+    "price": 7660000,
+    "note": "Bay thẳng"
+   },
+   {
+    "airline": "Scoot",
+    "out": "20:15 → 08:35",
+    "back": "theo lựa chọn",
+    "price": 9670292,
+    "note": "Có điểm dừng"
+   },
+   {
+    "airline": "Vietnam Airlines",
+    "out": "14:45 → 19:00",
+    "back": "theo lựa chọn",
+    "price": 9748000,
+    "note": "Bay thẳng"
+   },
+   {
+    "airline": "Malaysia Airlines",
+    "out": "13:05 → 17:30",
+    "back": "theo lựa chọn",
+    "price": 11847000,
+    "note": "Bay thẳng"
+   },
+   {
+    "airline": "THAI",
+    "out": "20:45 → 12:15",
+    "back": "theo lựa chọn",
+    "price": 12695000,
+    "note": "Có điểm dừng"
+   }
+  ],
+  "platforms": [
+   {
+    "name": "AirAsia (hãng)",
+    "price": 6851348
+   },
+   {
+    "name": "Jettzy",
+    "price": 7221321
+   }
+  ],
+  "hotels": [
+   {
+    "name": "Swing & Pillows By iBilik @ Imbi, Bukit Bintang",
+    "price": 283000,
+    "rating": 4.8,
+    "reviews": "507",
+    "why": "",
+    "chain": false,
+    "usd": 11
+   },
+   {
+    "name": "Swing & Pillows - Times Square, Bukit Bintang",
+    "price": 386000,
+    "rating": 4.8,
+    "reviews": "35",
+    "why": "Vị trí rất lý tưởng",
+    "chain": false,
+    "usd": 15
+   },
+   {
+    "name": "Hotel Olympic Malaysia",
+    "price": 412000,
+    "rating": 4.5,
+    "reviews": "6,5 N",
+    "why": "",
+    "chain": false,
+    "usd": 16
+   },
+   {
+    "name": "Teedo Hotel, Kuala Lumpur",
+    "price": 463000,
+    "rating": 4.6,
+    "reviews": "1,8 N",
+    "why": "",
+    "chain": false,
+    "usd": 18
+   },
+   {
+    "name": "Empire Hotel Bukit Bintang",
+    "price": 489000,
+    "rating": 4.8,
+    "reviews": "88",
+    "why": "Vị trí rất lý tưởng",
+    "chain": false,
+    "usd": 19
+   },
+   {
+    "name": "AQ Hotel Bukit Bintang",
+    "price": 515000,
+    "rating": 4.6,
+    "reviews": "989",
+    "why": "Vị trí rất lý tưởng",
+    "chain": false,
+    "usd": 20
+   },
+   {
+    "name": "Căn hộ, dành cho 6 người",
+    "price": 695000,
+    "rating": 5.0,
+    "reviews": "3,2 N",
+    "why": "",
+    "chain": false,
+    "usd": 27
+   }
+  ],
+  "date": "2026-11-20",
+  "fetchedAt": "2026-11-20T12:45+07:00"
  }
 ]
