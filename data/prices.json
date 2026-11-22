@@ -380,5 +380,123 @@
   ],
   "date": "2026-11-20",
   "fetchedAt": "2026-11-20T12:45+07:00"
+ },
+ {
+  "cheapest": 6851348,
+  "cheapestAirline": "AirAsia 09:00",
+  "cheapestPlatform": "",
+  "platformFlight": "AirAsia: đi 09:00→13:15",
+  "airlines": [
+   {
+    "airline": "AirAsia",
+    "out": "09:00 → 13:15",
+    "back": "theo lựa chọn",
+    "price": 6851348,
+    "note": "Bay thẳng"
+   },
+   {
+    "airline": "Vietjet",
+    "out": "07:25 → 11:30",
+    "back": "theo lựa chọn",
+    "price": 7660000,
+    "note": "Bay thẳng"
+   },
+   {
+    "airline": "Scoot",
+    "out": "20:15 → 08:35",
+    "back": "theo lựa chọn",
+    "price": 9670292,
+    "note": "Có điểm dừng"
+   },
+   {
+    "airline": "Vietnam Airlines",
+    "out": "14:45 → 19:00",
+    "back": "theo lựa chọn",
+    "price": 9763000,
+    "note": "Bay thẳng"
+   },
+   {
+    "airline": "Malaysia Airlines",
+    "out": "13:05 → 17:30",
+    "back": "theo lựa chọn",
+    "price": 11865000,
+    "note": "Bay thẳng"
+   },
+   {
+    "airline": "THAI",
+    "out": "20:45 → 12:15",
+    "back": "theo lựa chọn",
+    "price": 12712000,
+    "note": "Có điểm dừng"
+   }
+  ],
+  "platforms": [],
+  "hotels": [
+   {
+    "name": "Hotel Olympic Malaysia",
+    "price": 413000,
+    "rating": 4.5,
+    "reviews": "6,5 N",
+    "why": "",
+    "chain": false,
+    "usd": 16
+   },
+   {
+    "name": "Kingston Hotel 06 By iBilik @ Changkat Bukit Bintang",
+    "price": 413000,
+    "rating": 4.7,
+    "reviews": "2,8 N",
+    "why": "Vị trí rất lý tưởng",
+    "chain": true,
+    "usd": 16
+   },
+   {
+    "name": "Swing & Pillows By iBilik @ Bukit Bintang City Centre",
+    "price": 413000,
+    "rating": 4.7,
+    "reviews": "1,2 N",
+    "why": "Vị trí rất lý tưởng",
+    "chain": false,
+    "usd": 16
+   },
+   {
+    "name": "Empire Hotel Bukit Bintang",
+    "price": 490000,
+    "rating": 4.8,
+    "reviews": "88",
+    "why": "Vị trí rất lý tưởng",
+    "chain": false,
+    "usd": 19
+   },
+   {
+    "name": "Teedo Hotel, Kuala Lumpur",
+    "price": 490000,
+    "rating": 4.6,
+    "reviews": "1,8 N",
+    "why": "",
+    "chain": false,
+    "usd": 19
+   },
+   {
+    "name": "AQ Hotel Bukit Bintang",
+    "price": 516000,
+    "rating": 4.6,
+    "reviews": "991",
+    "why": "Vị trí rất lý tưởng",
+    "chain": false,
+    "usd": 20
+   },
+   {
+    "name": "Kingston Hotel 8 By iBilik @ Kuala Lumpur, Bukit Bintang (Formerly known as Metropol Hotel)",
+    "price": 567000,
+    "rating": 4.7,
+    "reviews": "2,9 N",
+    "why": "Vị trí rất lý tưởng",
+    "chain": true,
+    "usd": 22
+   }
+  ],
+  "date": "2026-11-22",
+  "fetchedAt": "2026-11-22T12:08+07:00"
  }
 ]

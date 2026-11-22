@@ -1,16 +1,3 @@
-Bắt đầu: 2026-11-21 12:39:42 (commit ba17d57)
-2026-11-21 05:40:31,653 ERROR Crawl lỗi: Không đọc được danh sách chuyến bay chiều đi.
-Traceback (most recent call last):
-  File "/home/runner/work/gomalay/gomalay/update_prices.py", line 70, in <module>
-    rec, old = update()
-               ^^^^^^^^
-  File "/home/runner/work/gomalay/gomalay/update_prices.py", line 47, in update
-    rec = crawl()
-          ^^^^^^^
-  File "/home/runner/work/gomalay/gomalay/crawler.py", line 282, in crawl
-    rec = crawl_flights(page)
-          ^^^^^^^^^^^^^^^^^^^
-  File "/home/runner/work/gomalay/gomalay/crawler.py", line 105, in crawl_flights
-    raise RuntimeError("Không đọc được danh sách chuyến bay chiều đi.")
-RuntimeError: Không đọc được danh sách chuyến bay chiều đi.
-Kết quả: failure
+Bắt đầu: 2026-11-22 12:07:06 (commit 75210cf)
+Rẻ nhất hôm nay 6,851,348 ₫ (AirAsia 09:00), so với 2026-11-20: +0 ₫
+Kết quả: success
