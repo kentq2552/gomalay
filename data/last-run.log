@@ -1,3 +1,18 @@
-Bắt đầu: 2026-11-17 14:47:45 (commit 4c707d3)
-Rẻ nhất hôm nay 6,851,348 ₫ (AirAsia 09:00 / về 12:00)
-Kết quả: success
+Bắt đầu: 2026-11-25 14:00:36 (commit ce5e169)
+2026-11-25 07:01:12,903 ERROR Crawl lỗi: Google đang chặn truy cập tự động (trang CAPTCHA). Thử lại sau vài giờ.
+Traceback (most recent call last):
+  File "/home/runner/work/gomalay/gomalay/update_prices.py", line 70, in <module>
+    rec, old = update()
+               ^^^^^^^^
+  File "/home/runner/work/gomalay/gomalay/update_prices.py", line 47, in update
+    rec = crawl()
+          ^^^^^^^
+  File "/home/runner/work/gomalay/gomalay/crawler.py", line 282, in crawl
+    rec = crawl_flights(page)
+          ^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/gomalay/gomalay/crawler.py", line 101, in crawl_flights
+    _check_blocked(page)
+  File "/home/runner/work/gomalay/gomalay/crawler.py", line 94, in _check_blocked
+    raise RuntimeError("Google đang chặn truy cập tự động (trang CAPTCHA). Thử lại sau vài giờ.")
+RuntimeError: Google đang chặn truy cập tự động (trang CAPTCHA). Thử lại sau vài giờ.
+Kết quả: failure
